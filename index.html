@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sweet dead</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   ОБЩИЕ СТРАНИЦЫ
+========================= */
+
+.page {
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* =========================
+   ПЕРВАЯ СТРАНИЦА
+========================= */
+
+#page1 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sweetDead {
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/* =========================
+   ANSWERS
+========================= */
+
+#page2 {
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    background: black;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    overflow-y: auto;
+}
+
+#answers {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+
+.answerButton {
+    width: 220px;
+    padding: 13px;
+    margin: 5px;
+
+    background: #222;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 4px;
+
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.answerButton:hover {
+    background: #444;
+}
+
+
+/* =========================
+   ОКНО ПАРОЛЯ
+========================= */
+
+#passwordBox {
+    display: none;
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: white;
+
+    padding: 25px;
+
+    border: 2px solid black;
+
+    text-align: center;
+
+    z-index: 100;
+}
+
+#passwordInput {
+    padding: 10px;
+    margin-top: 12px;
+
+    font-size: 16px;
+}
+
+#checkPassword {
+    padding: 10px 20px;
+    margin-top: 10px;
+
+    background: black;
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+#message {
+    margin-top: 10px;
+}
+
+
+/* =========================
+   ДОСЬЕ
+========================= */
+
+.dossier {
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 35px;
+
+    color: black;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 30%,
+            rgba(110, 0, 0, .65),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 80% 70%,
+            rgba(70, 0, 0, .75),
+            transparent 50%
+        ),
+        repeating-radial-gradient(
+            ellipse at center,
+            #3a0808 0px,
+            #651010 18px,
+            #260404 35px,
+            #571010 48px
+        );
+}
+
+.dossierContent {
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    background: rgba(230, 225, 220, .88);
+
+    border: 2px solid #180000;
+
+    box-shadow:
+        0 0 25px rgba(0,0,0,.7);
+}
+
+.dossier h1 {
+    margin-top: 0;
+
+    font-size: 35px;
+
+    border-bottom: 2px solid black;
+
+    padding-bottom: 10px;
+}
+
+.dossier h2 {
+    margin-top: 25px;
+}
+
+.dossier p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.status {
+    font-weight: bold;
+    color: #6b0000;
+}
+
+.backButton {
+    margin-top: 25px;
+
+    padding: 12px 25px;
+
+    background: black;
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =================================
+     ПЕРВАЯ СТРАНИЦА
+================================= -->
+
+<div id="page1" class="page">
+
+    <div id="sweetDead">
+        Sweet dead
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     ANSWERS
+================================= -->
+
+<div id="page2" class="page">
+
+    <div id="answers">
+        Answers
+    </div>
+
+    <button class="answerButton" onclick="openPassword(1)">
+        Nemka
+    </button>
+
+    <button class="answerButton" onclick="openPassword(2)">
+        Delta
+    </button>
+
+    <button class="answerButton" onclick="openPassword(3)">
+        Answer 3
+    </button>
+
+    <button class="answerButton" onclick="openPassword(4)">
+        Kashatan
+    </button>
+
+    <button class="answerButton" onclick="openPassword(5)">
+        Lizka
+    </button>
+
+    <button class="answerButton" onclick="openPassword(6)">
+        Lichi
+    </button>
+
+    <button class="answerButton" onclick="openPassword(7)">
+        Charlotte
+    </button>
+
+    <button class="answerButton" onclick="openPassword(8)">
+        Pancake
+    </button>
+
+</div>
+
+
+
+<!-- =================================
+     ОКНО ПАРОЛЯ
+================================= -->
+
+<div id="passwordBox">
+
+    <div>Enter password</div>
+
+    <input
+        id="passwordInput"
+        type="password"
+        placeholder="Password"
+    >
+
+    <br>
+
+    <button id="checkPassword">
+        Check
+    </button>
+
+    <div id="message"></div>
+
+</div>
+
+
+
+<!-- =================================
+     ДОСЬЕ 1 — NEMKA
+================================= -->
+
+<div id="dossier1" class="dossier">
+
+    <div class="dossierContent">
+
+        <h1>FILE 01 — NEMKA</h1>
+
+        <h2>Identification</h2>
+
+        <p>Name: Nemka</p>
+
+        <p class="status">STATUS: CLASSIFIED</p>
+
+        <h2>Information</h2>
+
+        <p>Information unavailable.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Back
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     ДОСЬЕ 2 — DELTA
+================================= -->
+
+<div id="dossier2" class="dossier">
+
+    <div class="dossierContent">
+
+        <h1>FILE 02 — DELTA</h1>
+
+        <h2>Identification</h2>
+
+        <p>Name: Delta</p>
+
+        <p class="status">STATUS: CLASSIFIED</p>
+
+        <h2>Information</h2>
+
+        <p>Information unavailable.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Back
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     ДОСЬЕ 3
+================================= -->
+
+<div id="dossier3" class="dossier">
+
+    <div class="dossierContent">
+
+        <h1>FILE 03 — UNKNOWN</h1>
+
+        <h2>Identification</h2>
+
+        <p>Name: Unknown</p>
+
+        <p class="status">STATUS: CLASSIFIED</p>
+
+        <h2>Information</h2>
+
+        <p>No data available.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Back
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     ДОСЬЕ 4 — KASHATAN
+================================= -->
+
+<div id="dossier4" class="dossier">
+
+    <div class="dossierContent">
+
+        <h1>FILE 04 — KASHATAN</h1>
+
+        <h2>Identification</h2>
+
+        <p>Name: Kashatan</p>
+
+        <p class="status">STATUS: CLASSIFIED</p>
+
+        <h2>Information</h2>
+
+        <p>Information unavailable.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Back
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     ДОСЬЕ 5 — LIZKA
+================================= -->
+
+<div id="dossier5" class="dossier">
+
+    <div class="dossierContent">
+
+        <h1>FILE 05 — LIZKA</h1>
+
+        <h2>Identification</h2>
+
+        <p>Name: Lizka</p>
+
+        <p class="status">STATUS: CLASSIFIED</p>
+
+        <h2>Information</h2>
+
+        <p>Information unavailable.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Back
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     ДОСЬЕ 6 — LICHI
+================================= -->
+
+<div id="dossier6" class="dossier">
+
+    <div class="dossierContent">
+
+        <h1>FILE 06 — LICHI</h1>
+
+        <h2>Identification</h2>
+
+        <p>Name: Lichi</p>
+
+        <p class="status">STATUS: CLASSIFIED</p>
+
+        <h2>Information</h2>
+
+        <p>Information unavailable.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Back
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     ДОСЬЕ 7 — CHARLOTTE
+================================= -->
+
+<div id="dossier7" class="dossier">
+
+    <div class="dossierContent">
+
+        <h1>FILE 07 — CHARLOTTE</h1>
+
+        <h2>Identification</h2>
+
+        <p>Name: Charlotte</p>
+
+        <p class="status">STATUS: CLASSIFIED</p>
+
+        <h2>Information</h2>
+
+        <p>Information unavailable.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Back
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     ДОСЬЕ 8 — PANCAKE
+================================= -->
+
+<div id="dossier8" class="dossier">
+
+    <div class="dossierContent">
+
+        <h1>FILE 08 — PANCAKE</h1>
+
+        <h2>Identification</h2>
+
+        <p>Name: Pancake</p>
+
+        <p class="status">STATUS: CLASSIFIED</p>
+
+        <h2>Information</h2>
+
+        <p>Information unavailable.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Back
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* =================================
+   ФОН ПЕРВОЙ СТРАНИЦЫ
+================================= */
+
+const photos = [
+
+    "https://images.pexels.com/photos/36319687/pexels-photo-36319687.jpeg",
+
+    "https://images.pexels.com/photos/36319688/pexels-photo-36319688.jpeg"
+
+];
+
+let currentPhoto = 0;
+
+
+function changePhoto() {
+
+    document.getElementById("page1").style.backgroundImage =
+        'url("' + photos[currentPhoto] + '")';
+
+    currentPhoto++;
+
+    if (currentPhoto >= photos.length) {
+        currentPhoto = 0;
+    }
+
+}
+
+
+changePhoto();
+
+setInterval(changePhoto, 500);
+
+
+/* =================================
+   SWEET DEAD → ANSWERS
+================================= */
+
+document.getElementById("sweetDead").onclick = function() {
+
+    document.getElementById("page1").style.display = "none";
+
+    document.getElementById("page2").style.display = "flex";
+
+};
+
+
+
+/* =================================
+   ПАРОЛИ
+================================= */
+
+const passwords = {
+
+    1: "D3ADl4s†",
+    2: "GODNIGHT",
+    3: "dead",
+
+    4: "death",
+    5: "death",
+    6: "death",
+    7: "death",
+    8: "death"
+
+};
+
+let selectedAnswer = null;
+
+
+/* =================================
+   ОТКРЫТЬ ПАРОЛЬ
+================================= */
+
+function openPassword(number) {
+
+    selectedAnswer = number;
+
+    document.getElementById("passwordBox").style.display = "block";
+
+    document.getElementById("passwordInput").value = "";
+
+    document.getElementById("message").innerText = "";
+
+    document.getElementById("passwordInput").focus();
+
+}
+
+
+
+/* =================================
+   ПРОВЕРКА ПАРОЛЯ
+================================= */
+
+document.getElementById("checkPassword").onclick = function() {
+
+    const enteredPassword =
+        document.getElementById("passwordInput").value;
+
+
+    if (enteredPassword === passwords[selectedAnswer]) {
+
+        document.getElementById("passwordBox").style.display = "none";
+
+        openDossier(selectedAnswer);
+
+    } else {
+
+        document.getElementById("message").innerText =
+            "Wrong password.";
+
+    }
+
+};
+
+
+
+/* =================================
+   ОТКРЫТИЕ ДОСЬЕ
+================================= */
+
+function openDossier(number) {
+
+    document.getElementById("page2").style.display = "none";
+
+
+    for (let i = 1; i <= 8; i++) {
+
+        document.getElementById("dossier" + i).style.display = "none";
+
+    }
+
+
+    document.getElementById("dossier" + number).style.display = "block";
+
+}
+
+
+
+/* =================================
+   НАЗАД
+================================= */
+
+function backToAnswers() {
+
+    for (let i = 1; i <= 8; i++) {
+
+        document.getElementById("dossier" + i).style.display = "none";
+
+    }
+
+    document.getElementById("page2").style.display = "flex";
+
+}
+
+</script>
+
+</body>
+          </html>
