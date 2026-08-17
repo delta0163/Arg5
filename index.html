@@ -70,20 +70,14 @@ html, body {
     overflow-y: auto;
 }
 
-
-/* Большая кликабельная надпись */
-
 #answers {
     color: white;
-
     font-size: 50px;
-
     font-weight: bold;
 
     margin-bottom: 25px;
 
     cursor: pointer;
-
     user-select: none;
 }
 
@@ -93,14 +87,13 @@ html, body {
 
 
 /* =========================
-   КНОПКИ ДОСЬЕ
+   КНОПКИ
 ========================= */
 
 .answerButton {
     width: 220px;
 
     padding: 13px;
-
     margin: 5px;
 
     background: #222;
@@ -108,7 +101,6 @@ html, body {
     color: white;
 
     border: 1px solid #555;
-
     border-radius: 4px;
 
     font-size: 17px;
@@ -122,7 +114,7 @@ html, body {
 
 
 /* =========================
-   ОКНО ПАРОЛЯ
+   ПАРОЛЬ
 ========================= */
 
 #passwordBox {
@@ -171,18 +163,10 @@ html, body {
     background: black;
 }
 
-#checkPassword:hover {
-    background: #333;
-}
-
 #cancelPassword {
     background: #555;
 
     margin-left: 5px;
-}
-
-#cancelPassword:hover {
-    background: #777;
 }
 
 #message {
@@ -283,13 +267,9 @@ html, body {
     cursor: pointer;
 }
 
-.backButton:hover {
-    background: #333;
-}
-
 
 /* =========================
-   ПУСТАЯ СТРАНИЦА
+   СЕКРЕТНАЯ СТРАНИЦА
 ========================= */
 
 #emptyPage {
@@ -299,6 +279,21 @@ html, body {
     height: 100vh;
 
     background: black;
+
+    color: white;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+#secretText {
+    font-size: 32px;
+
+    font-weight: bold;
+
+    line-height: 1.7;
 }
 
 </style>
@@ -325,11 +320,6 @@ html, body {
 ========================= -->
 
 <div id="page2" class="page">
-
-    <!--
-        БОЛЬШАЯ НАДПИСЬ ANSWERS.
-        ПРИ НАЖАТИИ ЗАПРАШИВАЕТ ПАРОЛЬ.
-    -->
 
     <div
         id="answers"
@@ -448,340 +438,239 @@ html, body {
 
 
 <!-- =========================
-     ДОСЬЕ 1 — NEMKA
+     ДОСЬЕ
 ========================= -->
 
 <div id="dossier1" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 01 — NEMKA</h1>
 
-        <h1>ДОСЬЕ 01 — NEMKA</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Nemka</p>
 
-        <p>Имя: Nemka</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Информация отсутствует.</p>
 
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
 </div>
+</div>
 
-
-<!-- =========================
-     ДОСЬЕ 2 — DELTA
-========================= -->
 
 <div id="dossier2" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 02 — DELTA</h1>
 
-        <h1>ДОСЬЕ 02 — DELTA</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Delta</p>
 
-        <p>Имя: Delta</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Информация отсутствует.</p>
 
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
 </div>
+</div>
 
-
-<!-- =========================
-     ДОСЬЕ 3
-========================= -->
 
 <div id="dossier3" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 03 — НЕИЗВЕСТНЫЙ</h1>
 
-        <h1>ДОСЬЕ 03 — НЕИЗВЕСТНЫЙ</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Неизвестно</p>
 
-        <p>Имя: Неизвестно</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Данные отсутствуют.</p>
 
-        <p>
-            Данные отсутствуют.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
 </div>
+</div>
 
-
-<!-- =========================
-     ДОСЬЕ 4 — KASHATAN
-========================= -->
 
 <div id="dossier4" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 04 — KASHATAN</h1>
 
-        <h1>ДОСЬЕ 04 — KASHATAN</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Kashatan</p>
 
-        <p>Имя: Kashatan</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Информация отсутствует.</p>
 
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
 </div>
+</div>
 
-
-<!-- =========================
-     ДОСЬЕ 5 — LIZKA
-========================= -->
 
 <div id="dossier5" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 05 — LIZKA</h1>
 
-        <h1>ДОСЬЕ 05 — LIZKA</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Lizka</p>
 
-        <p>Имя: Lizka</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Информация отсутствует.</p>
 
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
 </div>
+</div>
 
-
-<!-- =========================
-     ДОСЬЕ 6 — LYCHEE
-========================= -->
 
 <div id="dossier6" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 06 — LYCHEE</h1>
 
-        <h1>ДОСЬЕ 06 — LYCHEE</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Lychee</p>
 
-        <p>Имя: Lychee</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Информация отсутствует.</p>
 
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
 </div>
+</div>
 
-
-<!-- =========================
-     ДОСЬЕ 7 — CHARLOTTE
-========================= -->
 
 <div id="dossier7" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 07 — CHARLOTTE</h1>
 
-        <h1>ДОСЬЕ 07 — CHARLOTTE</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Charlotte</p>
 
-        <p>Имя: Charlotte</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Информация отсутствует.</p>
 
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
 </div>
+</div>
 
-
-<!-- =========================
-     ДОСЬЕ 8 — PANCAKE
-========================= -->
 
 <div id="dossier8" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 08 — PANCAKE</h1>
 
-        <h1>ДОСЬЕ 08 — PANCAKE</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Pancake</p>
 
-        <p>Имя: Pancake</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Информация отсутствует.</p>
 
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
 </div>
+</div>
 
-
-<!-- =========================
-     ДОСЬЕ 9 — KYU KEOL
-========================= -->
 
 <div id="dossier9" class="dossier">
+<div class="dossierContent">
 
-    <div class="dossierContent">
+<h1>ДОСЬЕ 09 — KYU KEOL</h1>
 
-        <h1>ДОСЬЕ 09 — KYU KEOL</h1>
+<h2>Идентификация</h2>
 
-        <h2>Идентификация</h2>
+<p>Имя: Kyu Keol</p>
 
-        <p>Имя: Kyu Keol</p>
+<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
 
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
+<h2>Информация</h2>
 
-        <h2>Информация</h2>
+<p>Информация отсутствует.</p>
 
-        <p>
-            Информация отсутствует.
-        </p>
+<button class="backButton" onclick="backToAnswers()">
+← Назад
+</button>
 
-        <button
-            class="backButton"
-            onclick="backToAnswers()"
-        >
-            ← Назад
-        </button>
-
-    </div>
-
+</div>
 </div>
 
 
 <!-- =========================
-     ПУСТАЯ СТРАНИЦА
+     СЕКРЕТНАЯ СТРАНИЦА
 ========================= -->
 
-<div id="emptyPage"></div>
+<div id="emptyPage">
+
+    <div id="secretText">
+
+        Файлы засекречены
+
+        <br><br>
+
+        Rbeet wbem кцябс эцзыжыгс
+
+    </div>
+
+</div>
 
 
 <script>
 
 /* =========================
-   ФОН ПЕРВОЙ СТРАНИЦЫ
+   ФОН
 ========================= */
 
 const photos = [
@@ -797,18 +686,13 @@ let currentPhoto = 0;
 
 function changePhoto() {
 
-    document.getElementById(
-        "page1"
-    ).style.backgroundImage =
-        'url("' +
-        photos[currentPhoto] +
-        '")';
+    document.getElementById("page1")
+        .style.backgroundImage =
+        'url("' + photos[currentPhoto] + '")';
 
     currentPhoto++;
 
-    if (
-        currentPhoto >= photos.length
-    ) {
+    if (currentPhoto >= photos.length) {
         currentPhoto = 0;
     }
 }
@@ -816,14 +700,249 @@ function changePhoto() {
 
 changePhoto();
 
-setInterval(
-    changePhoto,
-    500
-);
+setInterval(changePhoto, 500);
 
 
 /* =========================
-   SWEET DEAD → ANSWERS
+   ВЕТЕР
+========================= */
+
+let audioContext = null;
+
+let windSource = null;
+
+let windGain = null;
+
+let windFilter = null;
+
+
+function startWind() {
+
+    if (windSource) {
+        return;
+    }
+
+    try {
+
+        audioContext =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+        if (audioContext.state === "suspended") {
+            audioContext.resume();
+        }
+
+        const bufferSize =
+            audioContext.sampleRate * 2;
+
+        const buffer =
+            audioContext.createBuffer(
+                1,
+                bufferSize,
+                audioContext.sampleRate
+            );
+
+        const data =
+            buffer.getChannelData(0);
+
+        for (let i = 0; i < bufferSize; i++) {
+            data[i] =
+                Math.random() * 2 - 1;
+        }
+
+        windSource =
+            audioContext.createBufferSource();
+
+        windSource.buffer = buffer;
+
+        windSource.loop = true;
+
+        windFilter =
+            audioContext.createBiquadFilter();
+
+        windFilter.type = "lowpass";
+
+        windFilter.frequency.value = 700;
+
+        windGain =
+            audioContext.createGain();
+
+        windGain.gain.value = 0.035;
+
+        windSource
+            .connect(windFilter)
+            .connect(windGain)
+            .connect(audioContext.destination);
+
+        windSource.start();
+
+    } catch (error) {
+
+        console.log("Ошибка ветра:", error);
+
+    }
+}
+
+
+function stopWind() {
+
+    if (!windSource) {
+        return;
+    }
+
+    try {
+        windSource.stop();
+    } catch (error) {}
+
+    windSource.disconnect();
+    windFilter.disconnect();
+    windGain.disconnect();
+
+    windSource = null;
+    windFilter = null;
+    windGain = null;
+}
+
+
+/* =========================
+   ЗВУК ПРИНТЕРА
+========================= */
+
+let printerTimer = null;
+
+let printerGain = null;
+
+
+/*
+   Создаём короткий механический
+   звук самостоятельно.
+*/
+
+function printerClick() {
+
+    if (!audioContext) {
+
+        audioContext =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+    }
+
+    const now =
+        audioContext.currentTime;
+
+    const osc =
+        audioContext.createOscillator();
+
+    const gain =
+        audioContext.createGain();
+
+    osc.type = "square";
+
+    osc.frequency.setValueAtTime(
+        75 + Math.random() * 35,
+        now
+    );
+
+    gain.gain.setValueAtTime(
+        0.0001,
+        now
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.08,
+        now + 0.008
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        now + 0.09
+    );
+
+    osc.connect(gain);
+
+    gain.connect(
+        audioContext.destination
+    );
+
+    osc.start(now);
+
+    osc.stop(
+        now + 0.1
+    );
+}
+
+
+/* =========================
+   ЗАПУСК ПРИНТЕРА
+========================= */
+
+function startPrinter() {
+
+    stopPrinter();
+
+    if (!audioContext) {
+
+        audioContext =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+    }
+
+    if (
+        audioContext.state ===
+        "suspended"
+    ) {
+
+        audioContext.resume();
+
+    }
+
+    /*
+       Последовательность коротких
+       механических щелчков.
+    */
+
+    printerClick();
+
+    printerTimer =
+        setInterval(
+            function() {
+
+                printerClick();
+
+            },
+            180 + Math.random() * 160
+        );
+}
+
+
+/* =========================
+   ОСТАНОВИТЬ ПРИНТЕР
+========================= */
+
+function stopPrinter() {
+
+    if (printerTimer) {
+
+        clearInterval(
+            printerTimer
+        );
+
+        printerTimer = null;
+
+    }
+}
+
+
+/* =========================
+   SWEET DEAD
 ========================= */
 
 document.getElementById(
@@ -837,6 +956,8 @@ document.getElementById(
     document.getElementById(
         "page2"
     ).style.display = "flex";
+
+    startWind();
 };
 
 
@@ -864,9 +985,8 @@ const passwords = {
 
     9: "death",
 
-    /* Пароль для большой Answers */
-
     10: "Ellioth_007n7"
+
 };
 
 
@@ -874,7 +994,7 @@ let selectedAnswer = null;
 
 
 /* =========================
-   ОТКРЫТЬ ОКНО ПАРОЛЯ
+   ОТКРЫТЬ ПАРОЛЬ
 ========================= */
 
 function openPassword(number) {
@@ -900,7 +1020,7 @@ function openPassword(number) {
 
 
 /* =========================
-   ЗАКРЫТЬ ОКНО ПАРОЛЯ
+   ЗАКРЫТЬ ПАРОЛЬ
 ========================= */
 
 function closePassword() {
@@ -934,7 +1054,6 @@ document.getElementById(
             "passwordInput"
         ).value;
 
-
     if (
         enteredPassword ===
         passwords[selectedAnswer]
@@ -944,20 +1063,12 @@ document.getElementById(
             "passwordBox"
         ).style.display = "none";
 
-
-        /* Answers → пустая страница */
-
-        if (
-            selectedAnswer === 10
-        ) {
+        if (selectedAnswer === 10) {
 
             openEmptyPage();
 
             return;
         }
-
-
-        /* Обычное досье */
 
         openDossier(
             selectedAnswer
@@ -969,25 +1080,28 @@ document.getElementById(
             "message"
         ).innerText =
             "Неверный пароль.";
+
     }
 };
 
 
 /* =========================
-   ОТКРЫТИЕ ДОСЬЕ
+   ДОСЬЕ
 ========================= */
 
 function openDossier(number) {
+
+    stopWind();
+
+    stopPrinter();
 
     document.getElementById(
         "page2"
     ).style.display = "none";
 
-
     document.getElementById(
         "emptyPage"
     ).style.display = "none";
-
 
     for (
         let i = 1;
@@ -999,7 +1113,6 @@ function openDossier(number) {
             "dossier" + i
         ).style.display = "none";
     }
-
 
     document.getElementById(
         "dossier" + number
@@ -1008,15 +1121,16 @@ function openDossier(number) {
 
 
 /* =========================
-   ПУСТАЯ СТРАНИЦА
+   СЕКРЕТНАЯ СТРАНИЦА
 ========================= */
 
 function openEmptyPage() {
 
+    stopWind();
+
     document.getElementById(
         "page2"
     ).style.display = "none";
-
 
     for (
         let i = 1;
@@ -1029,10 +1143,16 @@ function openEmptyPage() {
         ).style.display = "none";
     }
 
-
     document.getElementById(
         "emptyPage"
-    ).style.display = "block";
+    ).style.display = "flex";
+
+    /*
+       Запускаем принтер
+       только на этой странице.
+    */
+
+    startPrinter();
 }
 
 
@@ -1042,6 +1162,8 @@ function openEmptyPage() {
 
 function backToAnswers() {
 
+    stopPrinter();
+
     for (
         let i = 1;
         i <= 9;
@@ -1053,18 +1175,40 @@ function backToAnswers() {
         ).style.display = "none";
     }
 
-
     document.getElementById(
         "emptyPage"
     ).style.display = "none";
 
-
     document.getElementById(
         "page2"
     ).style.display = "flex";
+
+    startWind();
 }
+
+
+/* =========================
+   ENTER
+========================= */
+
+document.getElementById(
+    "passwordInput"
+).addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            document.getElementById(
+                "checkPassword"
+            ).click();
+
+        }
+
+    }
+);
 
 </script>
 
 </body>
-</html>
+    </html>
