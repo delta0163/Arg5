@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Sweet dead</title>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -26,9 +24,8 @@ html, body {
     height: 100vh;
 }
 
-
 /* =========================
-   ПЕРВАЯ СТРАНИЦА
+   ГЛАВНАЯ
 ========================= */
 
 #page1 {
@@ -41,6 +38,12 @@ html, body {
     align-items: center;
 }
 
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #sweetDead {
     color: black;
     font-size: 50px;
@@ -49,6 +52,18 @@ html, body {
     user-select: none;
 }
 
+#emptyButton {
+    margin-top: 15px;
+    width: 55px;
+    height: 25px;
+    padding: 0;
+
+    background-size: cover;
+    background-position: center;
+
+    border: 1px solid black;
+    cursor: pointer;
+}
 
 /* =========================
    ANSWERS
@@ -64,7 +79,6 @@ html, body {
 
     justify-content: center;
     align-items: center;
-
     flex-direction: column;
 
     overflow-y: auto;
@@ -74,44 +88,29 @@ html, body {
     color: white;
     font-size: 50px;
     font-weight: bold;
-
     margin-bottom: 25px;
-
     cursor: pointer;
     user-select: none;
 }
 
-#answers:hover {
-    color: #cccccc;
-}
-
-
-/* =========================
-   КНОПКИ
-========================= */
-
 .answerButton {
     width: 220px;
-
     padding: 13px;
     margin: 5px;
 
     background: #222;
-
     color: white;
 
     border: 1px solid #555;
     border-radius: 4px;
 
     font-size: 17px;
-
     cursor: pointer;
 }
 
 .answerButton:hover {
     background: #444;
 }
-
 
 /* =========================
    ПАРОЛЬ
@@ -140,7 +139,6 @@ html, body {
 
 #passwordInput {
     padding: 10px;
-
     margin-top: 12px;
 
     font-size: 16px;
@@ -149,7 +147,6 @@ html, body {
 #checkPassword,
 #cancelPassword {
     padding: 10px 20px;
-
     margin-top: 10px;
 
     color: white;
@@ -165,14 +162,11 @@ html, body {
 
 #cancelPassword {
     background: #555;
-
-    margin-left: 5px;
 }
 
 #message {
     margin-top: 10px;
 }
-
 
 /* =========================
    ДОСЬЕ
@@ -196,13 +190,11 @@ html, body {
             rgba(110, 0, 0, .65),
             transparent 45%
         ),
-
         radial-gradient(
             ellipse at 80% 70%,
             rgba(70, 0, 0, .75),
             transparent 50%
         ),
-
         repeating-radial-gradient(
             ellipse at center,
             #3a0808 0px,
@@ -243,13 +235,11 @@ html, body {
 
 .dossier p {
     font-size: 18px;
-
     line-height: 1.6;
 }
 
 .status {
     font-weight: bold;
-
     color: #6b0000;
 }
 
@@ -259,7 +249,6 @@ html, body {
     padding: 12px 25px;
 
     background: black;
-
     color: white;
 
     border: none;
@@ -267,9 +256,8 @@ html, body {
     cursor: pointer;
 }
 
-
 /* =========================
-   СЕКРЕТНАЯ СТРАНИЦА
+   ПУСТАЯ СТРАНИЦА
 ========================= */
 
 #emptyPage {
@@ -279,7 +267,6 @@ html, body {
     height: 100vh;
 
     background: black;
-
     color: white;
 
     justify-content: center;
@@ -290,30 +277,96 @@ html, body {
 
 #secretText {
     font-size: 32px;
-
     font-weight: bold;
-
     line-height: 1.7;
 }
 
+/* =========================
+   КОМНАТА
+========================= */
+
+#roomPage {
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.12),
+            rgba(0,0,0,.25)
+        ),
+        url("https://wohntrends-magazin.de/wp-content/uploads/2023/10/ein-unfertiger-raum-mit-weissen-waenden-und-keiner-wand-die-fuer-die-toilette-oder-andere-badezimmerutensilien-genutzt-werden-koennte_Easy-Resize.com_-1024x682.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#roomPage::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 40%,
+            rgba(0,0,0,.25) 100%
+        );
+}
+
+.roomBack {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+
+    z-index: 10;
+
+    padding: 10px 18px;
+
+    background: rgba(0,0,0,.75);
+
+    color: white;
+
+    border: 1px solid #555;
+
+    cursor: pointer;
+}
 </style>
 </head>
 
 <body>
 
-
 <!-- =========================
-     ПЕРВАЯ СТРАНИЦА
+     ГЛАВНАЯ
 ========================= -->
 
 <div id="page1" class="page">
 
-    <div id="sweetDead">
-        Sweet dead
+    <div class="mainContent">
+
+        <div id="sweetDead">
+            Sweet dead
+        </div>
+
+        <button
+            id="emptyButton"
+            onclick="openRoomPage()">
+        </button>
+
     </div>
 
 </div>
-
 
 <!-- =========================
      ANSWERS
@@ -321,103 +374,60 @@ html, body {
 
 <div id="page2" class="page">
 
-    <div
-        id="answers"
-        onclick="openPassword(10)"
-    >
-        Answers
+    <div id="answers" onclick="openPassword(10)">
+        Answer
     </div>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(1)"
-    >
+    <button class="answerButton" onclick="openPassword(1)">
         Nemka
     </button>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(2)"
-    >
+    <button class="answerButton" onclick="openPassword(2)">
         Delta
     </button>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(3)"
-    >
+    <button class="answerButton" onclick="openPassword(3)">
         Неизвестный
     </button>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(4)"
-    >
+    <button class="answerButton" onclick="openPassword(4)">
         Kashatan
     </button>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(5)"
-    >
+    <button class="answerButton" onclick="openPassword(5)">
         Lizka
     </button>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(6)"
-    >
+    <button class="answerButton" onclick="openPassword(6)">
         Lychee
     </button>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(7)"
-    >
+    <button class="answerButton" onclick="openPassword(7)">
         Charlotte
     </button>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(8)"
-    >
+    <button class="answerButton" onclick="openPassword(8)">
         Pancake
     </button>
 
-
-    <button
-        class="answerButton"
-        onclick="openPassword(9)"
-    >
+    <button class="answerButton" onclick="openPassword(9)">
         Kyu Keol
     </button>
 
 </div>
 
-
 <!-- =========================
-     ОКНО ПАРОЛЯ
+     ПАРОЛЬ
 ========================= -->
 
 <div id="passwordBox">
 
-    <div>
-        Введите пароль
-    </div>
+    <div>Введите пароль</div>
 
     <input
         id="passwordInput"
         type="password"
-        placeholder="Пароль"
-    >
+        placeholder="Пароль">
 
     <br>
 
@@ -427,8 +437,7 @@ html, body {
 
     <button
         id="cancelPassword"
-        onclick="closePassword()"
-    >
+        onclick="closePassword()">
         Отмена
     </button>
 
@@ -436,241 +445,290 @@ html, body {
 
 </div>
 
-
 <!-- =========================
-     ДОСЬЕ
+     ДОСЬЕ 1
 ========================= -->
 
 <div id="dossier1" class="dossier">
-<div class="dossierContent">
+    <div class="dossierContent">
+        <h1>ДОСЬЕ 01 — NEMKA</h1>
 
-<h1>ДОСЬЕ 01 — NEMKA</h1>
+        <h2>Идентификация</h2>
 
-<h2>Идентификация</h2>
+        <p>Имя: Nemka</p>
 
-<p>Имя: Nemka</p>
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
 
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
+        <h2>Информация</h2>
 
-<h2>Информация</h2>
+        <p>Информация отсутствует.</p>
 
-<p>Информация отсутствует.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+    </div>
 </div>
-</div>
-
-
-<div id="dossier2" class="dossier">
-<div class="dossierContent">
-
-<h1>ДОСЬЕ 02 — DELTA</h1>
-
-<h2>Идентификация</h2>
-
-<p>Имя: Delta</p>
-
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
-
-<h2>Информация</h2>
-
-<p>Информация отсутствует.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
-</div>
-</div>
-
-
-<div id="dossier3" class="dossier">
-<div class="dossierContent">
-
-<h1>ДОСЬЕ 03 — НЕИЗВЕСТНЫЙ</h1>
-
-<h2>Идентификация</h2>
-
-<p>Имя: Неизвестно</p>
-
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
-
-<h2>Информация</h2>
-
-<p>Данные отсутствуют.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
-</div>
-</div>
-
-
-<div id="dossier4" class="dossier">
-<div class="dossierContent">
-
-<h1>ДОСЬЕ 04 — KASHATAN</h1>
-
-<h2>Идентификация</h2>
-
-<p>Имя: Kashatan</p>
-
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
-
-<h2>Информация</h2>
-
-<p>Информация отсутствует.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
-</div>
-</div>
-
-
-<div id="dossier5" class="dossier">
-<div class="dossierContent">
-
-<h1>ДОСЬЕ 05 — LIZKA</h1>
-
-<h2>Идентификация</h2>
-
-<p>Имя: Lizka</p>
-
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
-
-<h2>Информация</h2>
-
-<p>Информация отсутствует.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
-</div>
-</div>
-
-
-<div id="dossier6" class="dossier">
-<div class="dossierContent">
-
-<h1>ДОСЬЕ 06 — LYCHEE</h1>
-
-<h2>Идентификация</h2>
-
-<p>Имя: Lychee</p>
-
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
-
-<h2>Информация</h2>
-
-<p>Информация отсутствует.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
-</div>
-</div>
-
-
-<div id="dossier7" class="dossier">
-<div class="dossierContent">
-
-<h1>ДОСЬЕ 07 — CHARLOTTE</h1>
-
-<h2>Идентификация</h2>
-
-<p>Имя: Charlotte</p>
-
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
-
-<h2>Информация</h2>
-
-<p>Информация отсутствует.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
-</div>
-</div>
-
-
-<div id="dossier8" class="dossier">
-<div class="dossierContent">
-
-<h1>ДОСЬЕ 08 — PANCAKE</h1>
-
-<h2>Идентификация</h2>
-
-<p>Имя: Pancake</p>
-
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
-
-<h2>Информация</h2>
-
-<p>Информация отсутствует.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
-</div>
-</div>
-
-
-<div id="dossier9" class="dossier">
-<div class="dossierContent">
-
-<h1>ДОСЬЕ 09 — KYU KEOL</h1>
-
-<h2>Идентификация</h2>
-
-<p>Имя: Kyu Keol</p>
-
-<p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
-
-<h2>Информация</h2>
-
-<p>Информация отсутствует.</p>
-
-<button class="backButton" onclick="backToAnswers()">
-← Назад
-</button>
-
-</div>
-</div>
-
 
 <!-- =========================
-     СЕКРЕТНАЯ СТРАНИЦА
+     ДОСЬЕ 2
+========================= -->
+
+<div id="dossier2" class="dossier">
+    <div class="dossierContent">
+
+        <h1>ДОСЬЕ 02 — DELTA</h1>
+
+        <h2>Идентификация</h2>
+
+        <p>Имя: Delta</p>
+
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
+
+        <h2>Информация</h2>
+
+        <p>Информация отсутствует.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+
+    </div>
+</div>
+
+<!-- =========================
+     ДОСЬЕ 3
+========================= -->
+
+<div id="dossier3" class="dossier">
+    <div class="dossierContent">
+
+        <h1>ДОСЬЕ 03 — НЕИЗВЕСТНЫЙ</h1>
+
+        <h2>Идентификация</h2>
+
+        <p>Имя: Неизвестно</p>
+
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
+
+        <h2>Информация</h2>
+
+        <p>Данные отсутствуют.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+
+    </div>
+</div>
+
+<!-- =========================
+     ДОСЬЕ 4
+========================= -->
+
+<div id="dossier4" class="dossier">
+    <div class="dossierContent">
+
+        <h1>ДОСЬЕ 04 — KASHATAN</h1>
+
+        <h2>Идентификация</h2>
+
+        <p>Имя: Kashatan</p>
+
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
+
+        <h2>Информация</h2>
+
+        <p>Информация отсутствует.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+
+    </div>
+</div>
+
+<!-- =========================
+     ДОСЬЕ 5
+========================= -->
+
+<div id="dossier5" class="dossier">
+    <div class="dossierContent">
+
+        <h1>ДОСЬЕ 05 — LIZKA</h1>
+
+        <h2>Идентификация</h2>
+
+        <p>Имя: Lizka</p>
+
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
+
+        <h2>Информация</h2>
+
+        <p>Информация отсутствует.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+
+    </div>
+</div>
+
+<!-- =========================
+     ДОСЬЕ 6
+========================= -->
+
+<div id="dossier6" class="dossier">
+    <div class="dossierContent">
+
+        <h1>ДОСЬЕ 06 — LYCHEE</h1>
+
+        <h2>Идентификация</h2>
+
+        <p>Имя: Lychee</p>
+
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
+
+        <h2>Информация</h2>
+
+        <p>Информация отсутствует.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+
+    </div>
+</div>
+
+<!-- =========================
+     ДОСЬЕ 7
+========================= -->
+
+<div id="dossier7" class="dossier">
+    <div class="dossierContent">
+
+        <h1>ДОСЬЕ 07 — CHARLOTTE</h1>
+
+        <h2>Идентификация</h2>
+
+        <p>Имя: Charlotte</p>
+
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
+
+        <h2>Информация</h2>
+
+        <p>Информация отсутствует.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+
+    </div>
+</div>
+
+<!-- =========================
+     ДОСЬЕ 8
+========================= -->
+
+<div id="dossier8" class="dossier">
+    <div class="dossierContent">
+
+        <h1>ДОСЬЕ 08 — PANCAKE</h1>
+
+        <h2>Идентификация</h2>
+
+        <p>Имя: Pancake</p>
+
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
+
+        <h2>Информация</h2>
+
+        <p>Информация отсутствует.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+
+    </div>
+</div>
+
+<!-- =========================
+     ДОСЬЕ 9
+========================= -->
+
+<div id="dossier9" class="dossier">
+    <div class="dossierContent">
+
+        <h1>ДОСЬЕ 09 — KYU KEOL</h1>
+
+        <h2>Идентификация</h2>
+
+        <p>Имя: Kyu Keol</p>
+
+        <p class="status">
+            СТАТУС: ЗАСЕКРЕЧЕНО
+        </p>
+
+        <h2>Информация</h2>
+
+        <p>Информация отсутствует.</p>
+
+        <button class="backButton" onclick="backToAnswers()">
+            ← Назад
+        </button>
+
+    </div>
+</div>
+
+<!-- =========================
+     СТРАНИЦА ELLIOTH
 ========================= -->
 
 <div id="emptyPage">
 
     <div id="secretText">
-
         Файлы засекречены
 
         <br><br>
 
         Rbeet wbem кцябс эцзыжыгс
-
     </div>
 
 </div>
 
+<!-- =========================
+     КОМНАТА
+========================= -->
+
+<div id="roomPage">
+
+    <button
+        class="roomBack"
+        onclick="backToHome()">
+        ← Назад
+    </button>
+
+</div>
 
 <script>
 
 /* =========================
-   ФОН
+   ФОН ГЛАВНОЙ
 ========================= */
 
 const photos = [
@@ -683,281 +741,36 @@ const photos = [
 
 let currentPhoto = 0;
 
+function changePhoto(){
 
-function changePhoto() {
+    document.getElementById("page1").style.backgroundImage =
+        'url("' + photos[currentPhoto] + '")';
 
-    document.getElementById("page1")
-        .style.backgroundImage =
+    document.getElementById("emptyButton").style.backgroundImage =
         'url("' + photos[currentPhoto] + '")';
 
     currentPhoto++;
 
-    if (currentPhoto >= photos.length) {
+    if(currentPhoto >= photos.length){
         currentPhoto = 0;
     }
 }
 
-
 changePhoto();
 
-setInterval(changePhoto, 500);
-
-
-/* =========================
-   ВЕТЕР
-========================= */
-
-let audioContext = null;
-
-let windSource = null;
-
-let windGain = null;
-
-let windFilter = null;
-
-
-function startWind() {
-
-    if (windSource) {
-        return;
-    }
-
-    try {
-
-        audioContext =
-            new (
-                window.AudioContext ||
-                window.webkitAudioContext
-            )();
-
-        if (audioContext.state === "suspended") {
-            audioContext.resume();
-        }
-
-        const bufferSize =
-            audioContext.sampleRate * 2;
-
-        const buffer =
-            audioContext.createBuffer(
-                1,
-                bufferSize,
-                audioContext.sampleRate
-            );
-
-        const data =
-            buffer.getChannelData(0);
-
-        for (let i = 0; i < bufferSize; i++) {
-            data[i] =
-                Math.random() * 2 - 1;
-        }
-
-        windSource =
-            audioContext.createBufferSource();
-
-        windSource.buffer = buffer;
-
-        windSource.loop = true;
-
-        windFilter =
-            audioContext.createBiquadFilter();
-
-        windFilter.type = "lowpass";
-
-        windFilter.frequency.value = 700;
-
-        windGain =
-            audioContext.createGain();
-
-        windGain.gain.value = 0.035;
-
-        windSource
-            .connect(windFilter)
-            .connect(windGain)
-            .connect(audioContext.destination);
-
-        windSource.start();
-
-    } catch (error) {
-
-        console.log("Ошибка ветра:", error);
-
-    }
-}
-
-
-function stopWind() {
-
-    if (!windSource) {
-        return;
-    }
-
-    try {
-        windSource.stop();
-    } catch (error) {}
-
-    windSource.disconnect();
-    windFilter.disconnect();
-    windGain.disconnect();
-
-    windSource = null;
-    windFilter = null;
-    windGain = null;
-}
-
-
-/* =========================
-   ЗВУК ПРИНТЕРА
-========================= */
-
-let printerTimer = null;
-
-let printerGain = null;
-
-
-/*
-   Создаём короткий механический
-   звук самостоятельно.
-*/
-
-function printerClick() {
-
-    if (!audioContext) {
-
-        audioContext =
-            new (
-                window.AudioContext ||
-                window.webkitAudioContext
-            )();
-
-    }
-
-    const now =
-        audioContext.currentTime;
-
-    const osc =
-        audioContext.createOscillator();
-
-    const gain =
-        audioContext.createGain();
-
-    osc.type = "square";
-
-    osc.frequency.setValueAtTime(
-        75 + Math.random() * 35,
-        now
-    );
-
-    gain.gain.setValueAtTime(
-        0.0001,
-        now
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        0.08,
-        now + 0.008
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        now + 0.09
-    );
-
-    osc.connect(gain);
-
-    gain.connect(
-        audioContext.destination
-    );
-
-    osc.start(now);
-
-    osc.stop(
-        now + 0.1
-    );
-}
-
-
-/* =========================
-   ЗАПУСК ПРИНТЕРА
-========================= */
-
-function startPrinter() {
-
-    stopPrinter();
-
-    if (!audioContext) {
-
-        audioContext =
-            new (
-                window.AudioContext ||
-                window.webkitAudioContext
-            )();
-
-    }
-
-    if (
-        audioContext.state ===
-        "suspended"
-    ) {
-
-        audioContext.resume();
-
-    }
-
-    /*
-       Последовательность коротких
-       механических щелчков.
-    */
-
-    printerClick();
-
-    printerTimer =
-        setInterval(
-            function() {
-
-                printerClick();
-
-            },
-            180 + Math.random() * 160
-        );
-}
-
-
-/* =========================
-   ОСТАНОВИТЬ ПРИНТЕР
-========================= */
-
-function stopPrinter() {
-
-    if (printerTimer) {
-
-        clearInterval(
-            printerTimer
-        );
-
-        printerTimer = null;
-
-    }
-}
+setInterval(changePhoto,500);
 
 
 /* =========================
    SWEET DEAD
 ========================= */
 
-document.getElementById(
-    "sweetDead"
-).onclick = function() {
+document.getElementById("sweetDead").onclick =
+function(){
 
-    document.getElementById(
-        "page1"
-    ).style.display = "none";
+    document.getElementById("page1").style.display="none";
 
-    document.getElementById(
-        "page2"
-    ).style.display = "flex";
-
-    startWind();
+    document.getElementById("page2").style.display="flex";
 };
 
 
@@ -967,28 +780,20 @@ document.getElementById(
 
 const passwords = {
 
-    1: "D3ADl4s†",
+    1:"D3ADl4s†",
+    2:"GODNIGHT",
+    3:"dead",
 
-    2: "GODNIGHT",
+    4:"death",
+    5:"death",
+    6:"death",
+    7:"death",
+    8:"death",
+    9:"death",
 
-    3: "dead",
-
-    4: "death",
-
-    5: "death",
-
-    6: "death",
-
-    7: "death",
-
-    8: "death",
-
-    9: "death",
-
-    10: "Ellioth_007n7"
+    10:"Ellioth_007n7"
 
 };
-
 
 let selectedAnswer = null;
 
@@ -997,25 +802,17 @@ let selectedAnswer = null;
    ОТКРЫТЬ ПАРОЛЬ
 ========================= */
 
-function openPassword(number) {
+function openPassword(number){
 
     selectedAnswer = number;
 
-    document.getElementById(
-        "passwordBox"
-    ).style.display = "block";
+    document.getElementById("passwordBox").style.display="block";
 
-    document.getElementById(
-        "passwordInput"
-    ).value = "";
+    document.getElementById("passwordInput").value="";
 
-    document.getElementById(
-        "message"
-    ).innerText = "";
+    document.getElementById("message").innerText="";
 
-    document.getElementById(
-        "passwordInput"
-    ).focus();
+    document.getElementById("passwordInput").focus();
 }
 
 
@@ -1023,21 +820,9 @@ function openPassword(number) {
    ЗАКРЫТЬ ПАРОЛЬ
 ========================= */
 
-function closePassword() {
+function closePassword(){
 
-    document.getElementById(
-        "passwordBox"
-    ).style.display = "none";
-
-    document.getElementById(
-        "passwordInput"
-    ).value = "";
-
-    document.getElementById(
-        "message"
-    ).innerText = "";
-
-    selectedAnswer = null;
+    document.getElementById("passwordBox").style.display="none";
 }
 
 
@@ -1045,40 +830,32 @@ function closePassword() {
    ПРОВЕРКА ПАРОЛЯ
 ========================= */
 
-document.getElementById(
-    "checkPassword"
-).onclick = function() {
+document.getElementById("checkPassword").onclick =
+function(){
 
     const enteredPassword =
-        document.getElementById(
-            "passwordInput"
-        ).value;
+        document.getElementById("passwordInput").value;
 
-    if (
+    if(
         enteredPassword ===
         passwords[selectedAnswer]
-    ) {
+    ){
 
-        document.getElementById(
-            "passwordBox"
-        ).style.display = "none";
+        document.getElementById("passwordBox").style.display="none";
 
-        if (selectedAnswer === 10) {
+        if(selectedAnswer === 10){
 
             openEmptyPage();
 
-            return;
+        }else{
+
+            openDossier(selectedAnswer);
+
         }
 
-        openDossier(
-            selectedAnswer
-        );
+    }else{
 
-    } else {
-
-        document.getElementById(
-            "message"
-        ).innerText =
+        document.getElementById("message").innerText =
             "Неверный пароль.";
 
     }
@@ -1089,126 +866,112 @@ document.getElementById(
    ДОСЬЕ
 ========================= */
 
-function openDossier(number) {
+function openDossier(number){
 
-    stopWind();
+    document.getElementById("page2").style.display="none";
 
-    stopPrinter();
+    document.getElementById("roomPage").style.display="none";
 
-    document.getElementById(
-        "page2"
-    ).style.display = "none";
-
-    document.getElementById(
-        "emptyPage"
-    ).style.display = "none";
-
-    for (
-        let i = 1;
-        i <= 9;
-        i++
-    ) {
+    for(let i=1;i<=9;i++){
 
         document.getElementById(
-            "dossier" + i
-        ).style.display = "none";
+            "dossier"+i
+        ).style.display="none";
+
     }
 
     document.getElementById(
-        "dossier" + number
-    ).style.display = "block";
+        "dossier"+number
+    ).style.display="block";
 }
 
 
 /* =========================
-   СЕКРЕТНАЯ СТРАНИЦА
+   СТРАНИЦА ELLIOTH
 ========================= */
 
-function openEmptyPage() {
+function openEmptyPage(){
 
-    stopWind();
+    document.getElementById("page1").style.display="none";
 
-    document.getElementById(
-        "page2"
-    ).style.display = "none";
+    document.getElementById("page2").style.display="none";
 
-    for (
-        let i = 1;
-        i <= 9;
-        i++
-    ) {
+    document.getElementById("roomPage").style.display="none";
 
-        document.getElementById(
-            "dossier" + i
-        ).style.display = "none";
-    }
-
-    document.getElementById(
-        "emptyPage"
-    ).style.display = "flex";
-
-    /*
-       Запускаем принтер
-       только на этой странице.
-    */
-
-    startPrinter();
+    document.getElementById("emptyPage").style.display="flex";
 }
 
 
 /* =========================
-   НАЗАД
+   КОМНАТА
 ========================= */
 
-function backToAnswers() {
+function openRoomPage(){
 
-    stopPrinter();
+    document.getElementById("page1").style.display="none";
 
-    for (
-        let i = 1;
-        i <= 9;
-        i++
-    ) {
+    document.getElementById("page2").style.display="none";
+
+    document.getElementById("emptyPage").style.display="none";
+
+    for(let i=1;i<=9;i++){
 
         document.getElementById(
-            "dossier" + i
-        ).style.display = "none";
+            "dossier"+i
+        ).style.display="none";
+
     }
 
-    document.getElementById(
-        "emptyPage"
-    ).style.display = "none";
-
-    document.getElementById(
-        "page2"
-    ).style.display = "flex";
-
-    startWind();
+    document.getElementById("roomPage").style.display="block";
 }
 
 
 /* =========================
-   ENTER
+   НАЗАД ДОМОЙ
 ========================= */
 
-document.getElementById(
-    "passwordInput"
-).addEventListener(
-    "keydown",
-    function(event) {
+function backToHome(){
 
-        if (event.key === "Enter") {
+    document.getElementById("roomPage").style.display="none";
 
-            document.getElementById(
-                "checkPassword"
-            ).click();
+    document.getElementById("emptyPage").style.display="none";
 
-        }
+    document.getElementById("page2").style.display="none";
+
+    for(let i=1;i<=9;i++){
+
+        document.getElementById(
+            "dossier"+i
+        ).style.display="none";
 
     }
-);
+
+    document.getElementById("page1").style.display="flex";
+}
+
+
+/* =========================
+   НАЗАД К ANSWER
+========================= */
+
+function backToAnswers(){
+
+    for(let i=1;i<=9;i++){
+
+        document.getElementById(
+            "dossier"+i
+        ).style.display="none";
+
+    }
+
+    document.getElementById("page2").style.display="flex";
+
+    document.getElementById("emptyPage").style.display="none";
+
+    document.getElementById("roomPage").style.display="none";
+}
 
 </script>
 
 </body>
-    </html>
+</html>
