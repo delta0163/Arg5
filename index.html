@@ -321,7 +321,7 @@ html, body {
 }
 
 
-/* КРОВАВО-КРАСНОЕ ЗАТЕМНЕНИЕ НА ВСЕХ ДОСЬЕ */
+/* КРОВАВО-КРАСНОЕ ЗАТЕМНЕНИЕ НА ДОСЬЕ */
 
 .dossier::after {
     content: "";
@@ -715,6 +715,8 @@ html, body {
     flex-direction: column;
 
     z-index: 600;
+
+    overflow: hidden;
 }
 
 
@@ -726,19 +728,61 @@ html, body {
     max-height: 85vh;
 
     object-fit: contain;
+
+    z-index: 1;
 }
 
 
+/* ЭКРАН СТАРОГО ТЕЛЕВИЗОРА */
+
 #tvVideo {
-    position: relative;
+    position: absolute;
 
-    width: min(650px,70vw);
+    width: 55%;
 
-    max-height: 55vh;
+    height: 45%;
+
+    object-fit: cover;
 
     background: black;
 
     z-index: 2;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 8%;
+
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,.8),
+        0 0 15px rgba(0,0,0,.7);
+}
+
+
+/* ЭФФЕКТ CRT */
+
+#tvPage::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0,0,0,.12) 0px,
+            rgba(0,0,0,.12) 2px,
+            transparent 2px,
+            transparent 5px
+        );
 }
 
 
@@ -802,7 +846,8 @@ html, body {
     }
 
     #tvVideo {
-        width: 70vw;
+        width: 58%;
+        height: 40%;
     }
 
     #sweetDead {
@@ -853,13 +898,11 @@ html, body {
 
     </div>
 
-
     <button
         class="answerButton"
         onclick="openPassword(1)">
         Nemka
     </button>
-
 
     <button
         class="answerButton"
@@ -867,13 +910,11 @@ html, body {
         Delta
     </button>
 
-
     <button
         class="answerButton"
         onclick="openPassword(4)">
         Kashtan
     </button>
-
 
     <button
         class="answerButton"
@@ -881,13 +922,11 @@ html, body {
         Lizka
     </button>
 
-
     <button
         class="answerButton"
         onclick="openPassword(6)">
         Lychee
     </button>
-
 
     <button
         class="answerButton"
@@ -895,13 +934,11 @@ html, body {
         Charlotte
     </button>
 
-
     <button
         class="answerButton"
         onclick="openPassword(8)">
         Pancake
     </button>
-
 
     <button
         class="answerButton"
@@ -936,9 +973,7 @@ html, body {
     <button
         id="cancelPassword"
         onclick="closePassword()">
-
         Отмена
-
     </button>
 
     <div id="message"></div>
@@ -1277,7 +1312,6 @@ html, body {
         src="./123.png"
         alt="Телевизор">
 
-
     <video
         id="tvVideo"
         controls
@@ -1291,7 +1325,6 @@ html, body {
 
     </video>
 
-
     <button
         class="tvBack"
         onclick="backToRoom()">
@@ -1304,6 +1337,7 @@ html, body {
 
 
 <script>
+
 
 /* =========================
    ФОН ГЛАВНОЙ
@@ -1407,6 +1441,7 @@ function startWind() {
             data[i] =
                 last * 6 +
                 random * 0.12;
+
         }
 
         windSource =
@@ -1473,6 +1508,7 @@ function stopWind() {
         windSource.disconnect();
 
         windSource = null;
+
     }
 
     if (audioContext) {
@@ -1484,6 +1520,7 @@ function stopWind() {
         catch (e) {}
 
         audioContext = null;
+
     }
 
 }
