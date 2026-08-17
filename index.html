@@ -93,7 +93,9 @@ html, body {
     color: white;
     font-size: 50px;
     font-weight: bold;
+
     margin-bottom: 25px;
+
     cursor: pointer;
     user-select: none;
 }
@@ -140,7 +142,7 @@ html, body {
 
     text-align: center;
 
-    z-index: 100;
+    z-index: 1000;
 }
 
 #passwordInput {
@@ -190,7 +192,6 @@ html, body {
     overflow-y: auto;
 
     background:
-
         radial-gradient(
             ellipse at 20% 30%,
             rgba(110, 0, 0, .65),
@@ -205,7 +206,6 @@ html, body {
 
         repeating-radial-gradient(
             ellipse at center,
-
             #3a0808 0px,
             #651010 18px,
             #260404 35px,
@@ -267,7 +267,7 @@ html, body {
 
 
 /* =========================
-   ПУСТАЯ СТРАНИЦА
+   СЕКРЕТНАЯ СТРАНИЦА
 ========================= */
 
 #emptyPage {
@@ -293,7 +293,7 @@ html, body {
 
 
 /* =========================
-   СТРАНИЦА С ДВЕРЬЮ
+   КОМНАТА
 ========================= */
 
 #roomPage {
@@ -310,6 +310,26 @@ html, body {
 
     justify-content: center;
     align-items: center;
+
+    gap: 80px;
+}
+
+
+/* =========================
+   ОБЁРТКА ДВЕРИ
+========================= */
+
+.doorWrapper {
+    width: 230px;
+    height: 470px;
+
+    cursor: pointer;
+
+    transition: transform .15s;
+}
+
+.doorWrapper:hover {
+    transform: scale(1.02);
 }
 
 
@@ -321,33 +341,24 @@ html, body {
     width: 230px;
     height: 470px;
 
+    position: relative;
+
     background:
         linear-gradient(
             to right,
-            #d8d8d8,
-            #ffffff 12%,
+            #cfcfcf 0%,
+            #eeeeee 8%,
+            #ffffff 20%,
             #f5f5f5 85%,
-            #cfcfcf
+            #c9c9c9 100%
         );
 
-    border: 4px solid #bcbcbc;
+    border: 4px solid #999;
 
     box-shadow:
-        0 0 0 2px #777,
+        0 0 0 2px #555,
+        inset 0 0 25px rgba(0,0,0,.15),
         0 0 35px rgba(255,255,255,.12);
-
-    position: relative;
-
-    cursor: pointer;
-
-    transition:
-        transform .15s,
-        filter .15s;
-}
-
-.whiteDoor:hover {
-    filter: brightness(1.08);
-    transform: scale(1.01);
 }
 
 
@@ -355,38 +366,26 @@ html, body {
    ПАНЕЛИ ДВЕРИ
 ========================= */
 
-.whiteDoor::before {
-    content: "";
-
+.doorPanel {
     position: absolute;
 
-    top: 35px;
     left: 28px;
 
-    width: 170px;
-    height: 150px;
+    width: 166px;
+    height: 145px;
 
-    border: 3px solid #c5c5c5;
+    border: 3px solid #bcbcbc;
 
     box-shadow:
-        inset 0 0 8px rgba(0,0,0,.08);
+        inset 0 0 12px rgba(0,0,0,.1);
 }
 
-.whiteDoor::after {
-    content: "";
+.topPanel {
+    top: 35px;
+}
 
-    position: absolute;
-
+.bottomPanel {
     bottom: 35px;
-    left: 28px;
-
-    width: 170px;
-    height: 150px;
-
-    border: 3px solid #c5c5c5;
-
-    box-shadow:
-        inset 0 0 8px rgba(0,0,0,.08);
 }
 
 
@@ -397,25 +396,23 @@ html, body {
 .doorHandle {
     position: absolute;
 
-    right: 22px;
+    right: 20px;
     top: 50%;
 
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
 
     border-radius: 50%;
 
     background: #555;
 
     box-shadow:
-        2px 2px 4px rgba(0,0,0,.5);
-
-    z-index: 5;
+        2px 2px 5px rgba(0,0,0,.6);
 }
 
 
 /* =========================
-   КНОПКА НАЗАД
+   НАЗАД
 ========================= */
 
 .roomBack {
@@ -423,8 +420,6 @@ html, body {
 
     left: 20px;
     bottom: 20px;
-
-    z-index: 10;
 
     padding: 10px 18px;
 
@@ -439,7 +434,7 @@ html, body {
 
 
 /* =========================
-   СТРАНИЦА С ГЛАЗАМИ
+   СТРАНИЦА ГЛАЗ
 ========================= */
 
 #eyesPage {
@@ -462,11 +457,6 @@ html, body {
     overflow: hidden;
 }
 
-
-/* =========================
-   ГЛАЗА
-========================= */
-
 #eyesImage {
     width: min(900px, 90vw);
 
@@ -483,11 +473,6 @@ html, body {
     transform: scale(.92);
 }
 
-
-/* =========================
-   АНИМАЦИЯ ГЛАЗ
-========================= */
-
 @keyframes eyesAppear {
 
     0% {
@@ -503,6 +488,123 @@ html, body {
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+
+/* =========================
+   ТЕЛЕВИЗОР
+========================= */
+
+#tvPage {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: black;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    z-index: 600;
+}
+
+
+/* Картинка телевизора */
+
+#tvImage {
+    position: absolute;
+
+    width: min(900px, 95vw);
+    max-height: 85vh;
+
+    object-fit: contain;
+}
+
+
+/* Видео */
+
+#tvVideo {
+    position: relative;
+
+    width: min(650px, 70vw);
+    max-height: 55vh;
+
+    background: black;
+
+    z-index: 2;
+}
+
+
+/* Назад */
+
+.tvBack {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+
+    z-index: 10;
+
+    padding: 10px 18px;
+
+    background: rgba(0,0,0,.8);
+
+    color: white;
+
+    border: 1px solid #555;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
+
+@media (max-width: 700px) {
+
+    #roomPage {
+        gap: 20px;
+    }
+
+    .doorWrapper {
+        width: 150px;
+        height: 330px;
+    }
+
+    .whiteDoor {
+        width: 150px;
+        height: 330px;
+    }
+
+    .doorPanel {
+        left: 18px;
+        width: 106px;
+        height: 95px;
+    }
+
+    .topPanel {
+        top: 25px;
+    }
+
+    .bottomPanel {
+        bottom: 25px;
+    }
+
+    .doorHandle {
+        right: 12px;
+    }
+
+    #tvVideo {
+        width: 70vw;
     }
 }
 
@@ -626,6 +728,7 @@ html, body {
 ========================= -->
 
 <div id="dossier1" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 01 — NEMKA</h1>
@@ -653,6 +756,7 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
@@ -661,6 +765,7 @@ html, body {
 ========================= -->
 
 <div id="dossier2" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 02 — DELTA</h1>
@@ -688,6 +793,7 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
@@ -696,6 +802,7 @@ html, body {
 ========================= -->
 
 <div id="dossier3" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 03 — НЕИЗВЕСТНЫЙ</h1>
@@ -723,6 +830,7 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
@@ -731,6 +839,7 @@ html, body {
 ========================= -->
 
 <div id="dossier4" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 04 — KASHATAN</h1>
@@ -758,6 +867,7 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
@@ -766,6 +876,7 @@ html, body {
 ========================= -->
 
 <div id="dossier5" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 05 — LIZKA</h1>
@@ -793,6 +904,7 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
@@ -801,6 +913,7 @@ html, body {
 ========================= -->
 
 <div id="dossier6" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 06 — LYCHEE</h1>
@@ -828,6 +941,7 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
@@ -836,6 +950,7 @@ html, body {
 ========================= -->
 
 <div id="dossier7" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 07 — CHARLOTTE</h1>
@@ -863,6 +978,7 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
@@ -871,6 +987,7 @@ html, body {
 ========================= -->
 
 <div id="dossier8" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 08 — PANCAKE</h1>
@@ -898,6 +1015,7 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
@@ -906,6 +1024,7 @@ html, body {
 ========================= -->
 
 <div id="dossier9" class="dossier">
+
     <div class="dossierContent">
 
         <h1>ДОСЬЕ 09 — KYU KEOL</h1>
@@ -933,11 +1052,12 @@ html, body {
         </button>
 
     </div>
+
 </div>
 
 
 <!-- =========================
-     ELLIOTH
+     СЕКРЕТНАЯ СТРАНИЦА
 ========================= -->
 
 <div id="emptyPage">
@@ -956,18 +1076,46 @@ html, body {
 
 
 <!-- =========================
-     ДВЕРЬ
+     КОМНАТА С ДВУМЯ ДВЕРЯМИ
 ========================= -->
 
 <div id="roomPage">
 
+    <!-- ЛЕВАЯ ДВЕРЬ -->
     <div
-        class="whiteDoor"
+        class="doorWrapper"
         onclick="openEyesPage()">
 
-        <div class="doorHandle"></div>
+        <div class="whiteDoor">
+
+            <div class="doorPanel topPanel"></div>
+
+            <div class="doorPanel bottomPanel"></div>
+
+            <div class="doorHandle"></div>
+
+        </div>
 
     </div>
+
+
+    <!-- ПРАВАЯ ДВЕРЬ -->
+    <div
+        class="doorWrapper"
+        onclick="openTvPage()">
+
+        <div class="whiteDoor">
+
+            <div class="doorPanel topPanel"></div>
+
+            <div class="doorPanel bottomPanel"></div>
+
+            <div class="doorHandle"></div>
+
+        </div>
+
+    </div>
+
 
     <button
         class="roomBack"
@@ -994,7 +1142,47 @@ html, body {
 </div>
 
 
+<!-- =========================
+     ТЕЛЕВИЗОР
+========================= -->
+
+<div id="tvPage">
+
+    <!-- ФОТО ТЕЛЕВИЗОРА -->
+    <img
+        id="tvImage"
+        src="./123.png"
+        alt="Телевизор">
+
+
+    <!-- ВИДЕО -->
+    <video
+        id="tvVideo"
+        controls
+        playsinline>
+
+        <source
+            src="./video.mp4"
+            type="video/mp4">
+
+        Ваш браузер не поддерживает видео.
+
+    </video>
+
+
+    <button
+        class="tvBack"
+        onclick="backToRoom()">
+
+        ← Назад
+
+    </button>
+
+</div>
+
+
 <script>
+
 
 /* =========================
    ФОН ГЛАВНОЙ
@@ -1012,17 +1200,22 @@ let currentPhoto = 0;
 
 function changePhoto() {
 
-    document.getElementById("page1").style.backgroundImage =
+    document.getElementById("page1")
+        .style.backgroundImage =
         'url("' + photos[currentPhoto] + '")';
 
-    document.getElementById("emptyButton").style.backgroundImage =
+    document.getElementById("emptyButton")
+        .style.backgroundImage =
         'url("' + photos[currentPhoto] + '")';
 
     currentPhoto++;
 
     if (currentPhoto >= photos.length) {
+
         currentPhoto = 0;
+
     }
+
 }
 
 changePhoto();
@@ -1035,12 +1228,15 @@ setInterval(changePhoto, 500);
 ========================= */
 
 let audioContext = null;
+
 let windSource = null;
 
 function startWind() {
 
     if (windSource) {
+
         return;
+
     }
 
     try {
@@ -1078,18 +1274,21 @@ function startWind() {
             data[i] =
                 last * 6 +
                 random * 0.12;
+
         }
 
         windSource =
             audioContext.createBufferSource();
 
         windSource.buffer = buffer;
+
         windSource.loop = true;
 
         const filter =
             audioContext.createBiquadFilter();
 
         filter.type = "lowpass";
+
         filter.frequency.value = 750;
 
         const gain =
@@ -1100,7 +1299,9 @@ function startWind() {
         windSource
             .connect(filter)
             .connect(gain)
-            .connect(audioContext.destination);
+            .connect(
+                audioContext.destination
+            );
 
         windSource.start(0);
 
@@ -1112,6 +1313,7 @@ function startWind() {
         );
 
     }
+
 }
 
 
@@ -1124,22 +1326,29 @@ function stopWind() {
     if (windSource) {
 
         try {
+
             windSource.stop();
+
         } catch (e) {}
 
         windSource.disconnect();
 
         windSource = null;
+
     }
 
     if (audioContext) {
 
         try {
+
             audioContext.close();
+
         } catch (e) {}
 
         audioContext = null;
+
     }
+
 }
 
 
@@ -1159,6 +1368,7 @@ function stopScareSound() {
     try {
 
         scareSound.pause();
+
         scareSound.currentTime = 0;
 
     } catch (error) {
@@ -1169,6 +1379,7 @@ function stopScareSound() {
         );
 
     }
+
 }
 
 
@@ -1201,14 +1412,21 @@ document
 const passwords = {
 
     1: "D3ADl4s†",
+
     2: "GODNIGHT",
+
     3: "dead",
 
     4: "H33L₱",
+
     5: "#53628",
+
     6: "S0uL_",
+
     7: "ENG3L--",
+
     8: "L00L(/)",
+
     9: "G31S†",
 
     10: "Ellioth_007n7"
@@ -1237,6 +1455,7 @@ function openPassword(number) {
 
     document.getElementById("passwordInput")
         .focus();
+
 }
 
 
@@ -1248,6 +1467,7 @@ function closePassword() {
 
     document.getElementById("passwordBox")
         .style.display = "none";
+
 }
 
 
@@ -1275,7 +1495,9 @@ document
                     "passwordBox"
                 ).style.display = "none";
 
-                if (selectedAnswer === 10) {
+                if (
+                    selectedAnswer === 10
+                ) {
 
                     openEmptyPage();
 
@@ -1320,6 +1542,9 @@ function openDossier(number) {
     document.getElementById("eyesPage")
         .style.display = "none";
 
+    document.getElementById("tvPage")
+        .style.display = "none";
+
     for (
         let i = 1;
         i <= 9;
@@ -1335,16 +1560,18 @@ function openDossier(number) {
     document.getElementById(
         "dossier" + number
     ).style.display = "block";
+
 }
 
 
 /* =========================
-   ELLIOTH
+   СЕКРЕТНАЯ СТРАНИЦА
 ========================= */
 
 function openEmptyPage() {
 
     stopWind();
+
     stopScareSound();
 
     document.getElementById("page1")
@@ -1359,18 +1586,23 @@ function openEmptyPage() {
     document.getElementById("eyesPage")
         .style.display = "none";
 
+    document.getElementById("tvPage")
+        .style.display = "none";
+
     document.getElementById("emptyPage")
         .style.display = "flex";
+
 }
 
 
 /* =========================
-   ОТКРЫТЬ ДВЕРЬ
+   ОТКРЫТЬ КОМНАТУ
 ========================= */
 
 function openRoomPage() {
 
     stopWind();
+
     stopScareSound();
 
     document.getElementById("page1")
@@ -1383,6 +1615,9 @@ function openRoomPage() {
         .style.display = "none";
 
     document.getElementById("eyesPage")
+        .style.display = "none";
+
+    document.getElementById("tvPage")
         .style.display = "none";
 
     for (
@@ -1399,22 +1634,28 @@ function openRoomPage() {
 
     document.getElementById("roomPage")
         .style.display = "flex";
+
 }
 
 
 /* =========================
-   ДВЕРЬ → ГЛАЗА
+   ЛЕВАЯ ДВЕРЬ → ГЛАЗА
 ========================= */
 
-let returnTimer = null;
+let scareTimer = null;
 
 function openEyesPage() {
 
     stopWind();
+
     stopScareSound();
 
-    if (returnTimer) {
-        clearTimeout(returnTimer);
+    if (scareTimer) {
+
+        clearTimeout(scareTimer);
+
+        scareTimer = null;
+
     }
 
     document.getElementById("roomPage")
@@ -1424,9 +1665,7 @@ function openEyesPage() {
         .style.display = "flex";
 
 
-    /* =========================
-       АНИМАЦИЯ ГЛАЗ
-    ========================= */
+    /* Анимация глаз */
 
     const eyes =
         document.getElementById("eyesImage");
@@ -1439,9 +1678,7 @@ function openEyesPage() {
         "eyesAppear 1.5s ease forwards";
 
 
-    /* =========================
-       ЗАПУСК КРИКА
-    ========================= */
+    /* Крик */
 
     scareSound.currentTime = 0;
 
@@ -1455,21 +1692,85 @@ function openEyesPage() {
     });
 
 
-    /* =========================
-       ЧЕРЕЗ 5 СЕКУНД → ГЛАВНАЯ
-    ========================= */
+    /* Через 5 секунд обратно на главную */
 
-    returnTimer = setTimeout(() => {
+    scareTimer = setTimeout(
+        function() {
 
-        stopScareSound();
+            stopScareSound();
 
-        document.getElementById("eyesPage")
-            .style.display = "none";
+            document.getElementById(
+                "eyesPage"
+            ).style.display = "none";
 
-        document.getElementById("page1")
-            .style.display = "flex";
+            document.getElementById(
+                "page1"
+            ).style.display = "flex";
 
-    }, 5000);
+            scareTimer = null;
+
+        },
+        5000
+    );
+
+}
+
+
+/* =========================
+   ПРАВАЯ ДВЕРЬ → ТЕЛЕВИЗОР
+========================= */
+
+function openTvPage() {
+
+    stopWind();
+
+    stopScareSound();
+
+    document.getElementById("roomPage")
+        .style.display = "none";
+
+    document.getElementById("eyesPage")
+        .style.display = "none";
+
+    document.getElementById("tvPage")
+        .style.display = "flex";
+
+
+    const video =
+        document.getElementById("tvVideo");
+
+    video.currentTime = 0;
+
+    video.play().catch(error => {
+
+        console.log(
+            "Автозапуск видео заблокирован:",
+            error
+        );
+
+    });
+
+}
+
+
+/* =========================
+   НАЗАД ИЗ ТЕЛЕВИЗОРА
+========================= */
+
+function backToRoom() {
+
+    const video =
+        document.getElementById("tvVideo");
+
+    video.pause();
+
+    video.currentTime = 0;
+
+    document.getElementById("tvPage")
+        .style.display = "none";
+
+    document.getElementById("roomPage")
+        .style.display = "flex";
 
 }
 
@@ -1481,12 +1782,23 @@ function openEyesPage() {
 function backToHome() {
 
     stopWind();
+
     stopScareSound();
 
-    if (returnTimer) {
-        clearTimeout(returnTimer);
-        returnTimer = null;
+    if (scareTimer) {
+
+        clearTimeout(scareTimer);
+
+        scareTimer = null;
+
     }
+
+    const video =
+        document.getElementById("tvVideo");
+
+    video.pause();
+
+    video.currentTime = 0;
 
     document.getElementById("roomPage")
         .style.display = "none";
@@ -1495,6 +1807,9 @@ function backToHome() {
         .style.display = "none";
 
     document.getElementById("eyesPage")
+        .style.display = "none";
+
+    document.getElementById("tvPage")
         .style.display = "none";
 
     document.getElementById("page2")
@@ -1514,6 +1829,7 @@ function backToHome() {
 
     document.getElementById("page1")
         .style.display = "flex";
+
 }
 
 
@@ -1524,11 +1840,6 @@ function backToHome() {
 function backToAnswers() {
 
     stopScareSound();
-
-    if (returnTimer) {
-        clearTimeout(returnTimer);
-        returnTimer = null;
-    }
 
     for (
         let i = 1;
@@ -1551,11 +1862,15 @@ function backToAnswers() {
     document.getElementById("eyesPage")
         .style.display = "none";
 
+    document.getElementById("tvPage")
+        .style.display = "none";
+
     document.getElementById("page2")
         .style.display = "flex";
+
 }
 
 </script>
 
 </body>
-</html>
+    </html>
