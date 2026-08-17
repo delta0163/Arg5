@@ -472,6 +472,8 @@ html, body {
 #eyesImage {
     width: min(900px, 90vw);
 
+    max-height: 90vh;
+
     height: auto;
 
     display: block;
@@ -481,9 +483,6 @@ html, body {
     opacity: 0;
 
     transform: scale(.92);
-
-    animation:
-        eyesAppear 1.5s ease forwards;
 }
 
 
@@ -554,73 +553,55 @@ html, body {
     <button
         class="answerButton"
         onclick="openPassword(1)">
-
         Nemka
-
     </button>
 
     <button
         class="answerButton"
         onclick="openPassword(2)">
-
         Delta
-
     </button>
 
     <button
         class="answerButton"
         onclick="openPassword(3)">
-
         Неизвестный
-
     </button>
 
     <button
         class="answerButton"
         onclick="openPassword(4)">
-
         Kashatan
-
     </button>
 
     <button
         class="answerButton"
         onclick="openPassword(5)">
-
         Lizka
-
     </button>
 
     <button
         class="answerButton"
         onclick="openPassword(6)">
-
         Lychee
-
     </button>
 
     <button
         class="answerButton"
         onclick="openPassword(7)">
-
         Charlotte
-
     </button>
 
     <button
         class="answerButton"
         onclick="openPassword(8)">
-
         Pancake
-
     </button>
 
     <button
         class="answerButton"
         onclick="openPassword(9)">
-
         Kyu Keol
-
     </button>
 
 </div>
@@ -650,9 +631,7 @@ html, body {
     <button
         id="cancelPassword"
         onclick="closePassword()">
-
         Отмена
-
     </button>
 
     <div id="message"></div>
@@ -661,335 +640,123 @@ html, body {
 
 
 <!-- =========================
-     ДОСЬЕ 1
+     ДОСЬЕ
 ========================= -->
 
 <div id="dossier1" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 01 — NEMKA</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Nemka</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Информация отсутствует.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
-
-<!-- =========================
-     ДОСЬЕ 2
-========================= -->
 
 <div id="dossier2" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 02 — DELTA</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Delta</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Информация отсутствует.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
-
-<!-- =========================
-     ДОСЬЕ 3
-========================= -->
 
 <div id="dossier3" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 03 — НЕИЗВЕСТНЫЙ</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Неизвестно</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Данные отсутствуют.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Данные отсутствуют.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
-
-<!-- =========================
-     ДОСЬЕ 4
-========================= -->
 
 <div id="dossier4" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 04 — KASHATAN</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Kashatan</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Информация отсутствует.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
-
-<!-- =========================
-     ДОСЬЕ 5
-========================= -->
 
 <div id="dossier5" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 05 — LIZKA</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Lizka</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Информация отсутствует.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
-
-<!-- =========================
-     ДОСЬЕ 6
-========================= -->
 
 <div id="dossier6" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 06 — LYCHEE</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Lychee</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Информация отсутствует.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
-
-<!-- =========================
-     ДОСЬЕ 7
-========================= -->
 
 <div id="dossier7" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 07 — CHARLOTTE</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Charlotte</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Информация отсутствует.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
-
-<!-- =========================
-     ДОСЬЕ 8
-========================= -->
 
 <div id="dossier8" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 08 — PANCAKE</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Pancake</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Информация отсутствует.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
 
-<!-- =========================
-     ДОСЬЕ 9
-========================= -->
-
 <div id="dossier9" class="dossier">
-
     <div class="dossierContent">
-
         <h1>ДОСЬЕ 09 — KYU KEOL</h1>
-
         <h2>Идентификация</h2>
-
         <p>Имя: Kyu Keol</p>
-
-        <p class="status">
-            СТАТУС: ЗАСЕКРЕЧЕНО
-        </p>
-
+        <p class="status">СТАТУС: ЗАСЕКРЕЧЕНО</p>
         <h2>Информация</h2>
-
-        <p>
-            Информация отсутствует.
-        </p>
-
-        <button
-            class="backButton"
-            onclick="backToAnswers()">
-
-            ← Назад
-
-        </button>
-
+        <p>Информация отсутствует.</p>
+        <button class="backButton" onclick="backToAnswers()">← Назад</button>
     </div>
-
 </div>
 
 
@@ -1045,7 +812,7 @@ html, body {
 
     <img
         id="eyesImage"
-        src="1000017402.jpg"
+        src="./1000017402.jpg"
         alt="Глаза">
 
 </div>
@@ -1141,14 +908,12 @@ function startWind() {
             audioContext.createBufferSource();
 
         windSource.buffer = buffer;
-
         windSource.loop = true;
 
         const filter =
             audioContext.createBiquadFilter();
 
         filter.type = "lowpass";
-
         filter.frequency.value = 750;
 
         const gain =
@@ -1159,9 +924,7 @@ function startWind() {
         windSource
             .connect(filter)
             .connect(gain)
-            .connect(
-                audioContext.destination
-            );
+            .connect(audioContext.destination);
 
         windSource.start(0);
 
@@ -1215,16 +978,11 @@ const scareSound = new Audio(
 scareSound.preload = "auto";
 
 
-/* =========================
-   ОСТАНОВИТЬ СТРАШНЫЙ ЗВУК
-========================= */
-
 function stopScareSound() {
 
     try {
 
         scareSound.pause();
-
         scareSound.currentTime = 0;
 
     } catch (error) {
@@ -1250,13 +1008,11 @@ document
 
             startWind();
 
-            document.getElementById(
-                "page1"
-            ).style.display = "none";
+            document.getElementById("page1")
+                .style.display = "none";
 
-            document.getElementById(
-                "page2"
-            ).style.display = "flex";
+            document.getElementById("page2")
+                .style.display = "flex";
 
         }
     );
@@ -1292,21 +1048,17 @@ function openPassword(number) {
 
     selectedAnswer = number;
 
-    document.getElementById(
-        "passwordBox"
-    ).style.display = "block";
+    document.getElementById("passwordBox")
+        .style.display = "block";
 
-    document.getElementById(
-        "passwordInput"
-    ).value = "";
+    document.getElementById("passwordInput")
+        .value = "";
 
-    document.getElementById(
-        "message"
-    ).innerText = "";
+    document.getElementById("message")
+        .innerText = "";
 
-    document.getElementById(
-        "passwordInput"
-    ).focus();
+    document.getElementById("passwordInput")
+        .focus();
 }
 
 
@@ -1316,9 +1068,8 @@ function openPassword(number) {
 
 function closePassword() {
 
-    document.getElementById(
-        "passwordBox"
-    ).style.display = "none";
+    document.getElementById("passwordBox")
+        .style.display = "none";
 }
 
 
@@ -1346,9 +1097,7 @@ document
                     "passwordBox"
                 ).style.display = "none";
 
-                if (
-                    selectedAnswer === 10
-                ) {
+                if (selectedAnswer === 10) {
 
                     openEmptyPage();
 
@@ -1381,21 +1130,17 @@ function openDossier(number) {
 
     stopScareSound();
 
-    document.getElementById(
-        "page2"
-    ).style.display = "none";
+    document.getElementById("page2")
+        .style.display = "none";
 
-    document.getElementById(
-        "emptyPage"
-    ).style.display = "none";
+    document.getElementById("emptyPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "roomPage"
-    ).style.display = "none";
+    document.getElementById("roomPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "eyesPage"
-    ).style.display = "none";
+    document.getElementById("eyesPage")
+        .style.display = "none";
 
     for (
         let i = 1;
@@ -1424,25 +1169,20 @@ function openEmptyPage() {
     stopWind();
     stopScareSound();
 
-    document.getElementById(
-        "page1"
-    ).style.display = "none";
+    document.getElementById("page1")
+        .style.display = "none";
 
-    document.getElementById(
-        "page2"
-    ).style.display = "none";
+    document.getElementById("page2")
+        .style.display = "none";
 
-    document.getElementById(
-        "roomPage"
-    ).style.display = "none";
+    document.getElementById("roomPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "eyesPage"
-    ).style.display = "none";
+    document.getElementById("eyesPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "emptyPage"
-    ).style.display = "flex";
+    document.getElementById("emptyPage")
+        .style.display = "flex";
 }
 
 
@@ -1455,21 +1195,17 @@ function openRoomPage() {
     stopWind();
     stopScareSound();
 
-    document.getElementById(
-        "page1"
-    ).style.display = "none";
+    document.getElementById("page1")
+        .style.display = "none";
 
-    document.getElementById(
-        "page2"
-    ).style.display = "none";
+    document.getElementById("page2")
+        .style.display = "none";
 
-    document.getElementById(
-        "emptyPage"
-    ).style.display = "none";
+    document.getElementById("emptyPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "eyesPage"
-    ).style.display = "none";
+    document.getElementById("eyesPage")
+        .style.display = "none";
 
     for (
         let i = 1;
@@ -1483,9 +1219,8 @@ function openRoomPage() {
 
     }
 
-    document.getElementById(
-        "roomPage"
-    ).style.display = "flex";
+    document.getElementById("roomPage")
+        .style.display = "flex";
 }
 
 
@@ -1498,21 +1233,17 @@ function openEyesPage() {
     stopWind();
     stopScareSound();
 
-    document.getElementById(
-        "roomPage"
-    ).style.display = "none";
+    document.getElementById("roomPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "eyesPage"
-    ).style.display = "flex";
+    document.getElementById("eyesPage")
+        .style.display = "flex";
 
 
-    /* Анимация глаз */
+    /* Запускаем анимацию */
 
     const eyes =
-        document.getElementById(
-            "eyesImage"
-        );
+        document.getElementById("eyesImage");
 
     eyes.style.animation = "none";
 
@@ -1522,9 +1253,7 @@ function openEyesPage() {
         "eyesAppear 1.5s ease forwards";
 
 
-    /* =========================
-       ЗАПУСК СТРАШНОГО ЗВУКА
-    ========================= */
+    /* Запускаем страшный звук */
 
     scareSound.currentTime = 0;
 
@@ -1549,21 +1278,17 @@ function backToHome() {
     stopWind();
     stopScareSound();
 
-    document.getElementById(
-        "roomPage"
-    ).style.display = "none";
+    document.getElementById("roomPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "emptyPage"
-    ).style.display = "none";
+    document.getElementById("emptyPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "eyesPage"
-    ).style.display = "none";
+    document.getElementById("eyesPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "page2"
-    ).style.display = "none";
+    document.getElementById("page2")
+        .style.display = "none";
 
     for (
         let i = 1;
@@ -1577,9 +1302,8 @@ function backToHome() {
 
     }
 
-    document.getElementById(
-        "page1"
-    ).style.display = "flex";
+    document.getElementById("page1")
+        .style.display = "flex";
 }
 
 
@@ -1603,21 +1327,17 @@ function backToAnswers() {
 
     }
 
-    document.getElementById(
-        "emptyPage"
-    ).style.display = "none";
+    document.getElementById("emptyPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "roomPage"
-    ).style.display = "none";
+    document.getElementById("roomPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "eyesPage"
-    ).style.display = "none";
+    document.getElementById("eyesPage")
+        .style.display = "none";
 
-    document.getElementById(
-        "page2"
-    ).style.display = "flex";
+    document.getElementById("page2")
+        .style.display = "flex";
 }
 
 </script>
