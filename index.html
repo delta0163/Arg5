@@ -46,13 +46,14 @@ html, body {
 }
 
 
-/* КРАСНОЕ ЗАТЕМНЕНИЕ */
+/* =========================
+   КРОВАВО-КРАСНОЕ ЗАТЕМНЕНИЕ
+========================= */
 
 #page1::after {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     pointer-events: none;
@@ -60,10 +61,10 @@ html, body {
     background:
         radial-gradient(
             ellipse at center,
-            rgba(120,0,0,.05) 20%,
-            rgba(100,0,0,.25) 50%,
-            rgba(70,0,0,.55) 75%,
-            rgba(35,0,0,.85) 100%
+            rgba(90,0,0,.10) 15%,
+            rgba(120,0,0,.35) 40%,
+            rgba(150,0,0,.55) 65%,
+            rgba(55,0,0,.90) 100%
         );
 
     z-index: 3;
@@ -72,13 +73,10 @@ html, body {
 
 .mainContent {
     position: relative;
-
     z-index: 4;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 }
 
@@ -143,7 +141,6 @@ html, body {
     content: "";
 
     position: fixed;
-
     inset: 0;
 
     pointer-events: none;
@@ -160,7 +157,6 @@ html, body {
 
 #answers {
     position: relative;
-
     z-index: 2;
 
     color: white;
@@ -179,7 +175,6 @@ html, body {
 
 .answerButton {
     position: relative;
-
     z-index: 2;
 
     width: 220px;
@@ -857,7 +852,7 @@ html, body {
     <button
         class="answerButton"
         onclick="openPassword(4)">
-        Kashatan
+        Kashtan
     </button>
 
 
@@ -998,11 +993,11 @@ html, body {
 
     <div class="dossierContent">
 
-        <h1>ДОСЬЕ 04 — KASHATAN</h1>
+        <h1>ДОСЬЕ 04 — KASHTAN</h1>
 
         <h2>Идентификация</h2>
 
-        <p>Имя: Kashatan</p>
+        <p>Имя: Kashtan</p>
 
         <p class="status">
             СТАТУС: ЗАСЕКРЕЧЕНО
@@ -1363,9 +1358,7 @@ let windSource = null;
 function startWind() {
 
     if (windSource) {
-
         return;
-
     }
 
 
@@ -1479,16 +1472,13 @@ function stopWind() {
     if (windSource) {
 
         try {
-
             windSource.stop();
-
         }
 
         catch (e) {}
 
 
         windSource.disconnect();
-
 
         windSource = null;
 
@@ -1498,9 +1488,7 @@ function stopWind() {
     if (audioContext) {
 
         try {
-
             audioContext.close();
-
         }
 
         catch (e) {}
