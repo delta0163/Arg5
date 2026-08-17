@@ -46,42 +46,7 @@ html, body {
 }
 
 
-/* =========================
-   НАЛОЖЕННАЯ КАРТИНКА
-========================= */
-
-#overlayImage {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    z-index: 2;
-
-    pointer-events: none;
-
-    overflow: hidden;
-}
-
-
-#overlayImage img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-
-    display: block;
-}
-
-
-/* Затемнение по краям */
+/* КРАСНОЕ ЗАТЕМНЕНИЕ */
 
 #page1::after {
     content: "";
@@ -95,10 +60,10 @@ html, body {
     background:
         radial-gradient(
             ellipse at center,
-            transparent 30%,
-            rgba(0,0,0,.18) 55%,
-            rgba(0,0,0,.48) 78%,
-            rgba(0,0,0,.78) 100%
+            rgba(120,0,0,.05) 20%,
+            rgba(100,0,0,.25) 50%,
+            rgba(70,0,0,.55) 75%,
+            rgba(35,0,0,.85) 100%
         );
 
     z-index: 3;
@@ -843,21 +808,6 @@ html, body {
 ========================= -->
 
 <div id="page1" class="page">
-
-
-    <!-- =========================
-         КАРТИНКА ПОВЕРХ ФОНА
-         ФАЙЛ: 456.png
-    ========================= -->
-
-    <div id="overlayImage">
-
-        <img
-            src="./456.png"
-            alt="Наложенная картинка">
-
-    </div>
-
 
     <div class="mainContent">
 
@@ -2279,4 +2229,4 @@ function backToAnswers() {
 </script>
 
 </body>
-        </html>
+    </html>
