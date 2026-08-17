@@ -93,9 +93,7 @@ html, body {
     color: white;
     font-size: 50px;
     font-weight: bold;
-
     margin-bottom: 25px;
-
     cursor: pointer;
     user-select: none;
 }
@@ -550,57 +548,39 @@ html, body {
 
     </div>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(1)">
+    <button class="answerButton" onclick="openPassword(1)">
         Nemka
     </button>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(2)">
+    <button class="answerButton" onclick="openPassword(2)">
         Delta
     </button>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(3)">
+    <button class="answerButton" onclick="openPassword(3)">
         Неизвестный
     </button>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(4)">
+    <button class="answerButton" onclick="openPassword(4)">
         Kashatan
     </button>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(5)">
+    <button class="answerButton" onclick="openPassword(5)">
         Lizka
     </button>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(6)">
+    <button class="answerButton" onclick="openPassword(6)">
         Lychee
     </button>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(7)">
+    <button class="answerButton" onclick="openPassword(7)">
         Charlotte
     </button>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(8)">
+    <button class="answerButton" onclick="openPassword(8)">
         Pancake
     </button>
 
-    <button
-        class="answerButton"
-        onclick="openPassword(9)">
+    <button class="answerButton" onclick="openPassword(9)">
         Kyu Keol
     </button>
 
@@ -805,7 +785,7 @@ html, body {
 
 
 <!-- =========================
-     СТРАНИЦА С ГЛАЗАМИ
+     ГЛАЗА
 ========================= -->
 
 <div id="eyesPage">
@@ -821,7 +801,7 @@ html, body {
 <script>
 
 /* =========================
-   ФОН ГЛАВНОЙ
+   ФОН
 ========================= */
 
 const photos = [
@@ -1225,7 +1205,7 @@ function openRoomPage() {
 
 
 /* =========================
-   НАЖАТИЕ НА ДВЕРЬ
+   ДВЕРЬ → ГЛАЗА
 ========================= */
 
 function openEyesPage() {
@@ -1240,7 +1220,7 @@ function openEyesPage() {
         .style.display = "flex";
 
 
-    /* Запускаем анимацию */
+    /* Анимация глаз */
 
     const eyes =
         document.getElementById("eyesImage");
@@ -1253,7 +1233,7 @@ function openEyesPage() {
         "eyesAppear 1.5s ease forwards";
 
 
-    /* Запускаем страшный звук */
+    /* Запуск крика */
 
     scareSound.currentTime = 0;
 
@@ -1265,6 +1245,23 @@ function openEyesPage() {
         );
 
     });
+
+
+    /* =========================
+       ЧЕРЕЗ 5 СЕКУНД — ГЛАВНАЯ
+    ========================= */
+
+    setTimeout(() => {
+
+        stopScareSound();
+
+        document.getElementById("eyesPage")
+            .style.display = "none";
+
+        document.getElementById("page1")
+            .style.display = "flex";
+
+    }, 5000);
 
 }
 
@@ -1343,4 +1340,4 @@ function backToAnswers() {
 </script>
 
 </body>
-</html>
+    </html>
