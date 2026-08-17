@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>viscous madness</title>
+<title>Viscous Madness</title>
 
 <style>
 
@@ -52,6 +52,7 @@ html, body {
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
@@ -59,22 +60,24 @@ html, body {
     background:
         radial-gradient(
             ellipse at center,
-            rgba(90,0,0,.10) 15%,
-            rgba(120,0,0,.35) 40%,
-            rgba(150,0,0,.55) 65%,
-            rgba(55,0,0,.90) 100%
+            rgba(80,0,0,0.05) 15%,
+            rgba(120,0,0,0.20) 40%,
+            rgba(100,0,0,0.48) 70%,
+            rgba(25,0,0,0.88) 100%
         );
 
     z-index: 3;
 }
 
 
+/* =========================
+   ГЛАВНАЯ НАДПИСЬ
+========================= */
+
 .mainContent {
     position: relative;
 
     z-index: 4;
-
-    width: 100%;
 
     display: flex;
 
@@ -100,8 +103,6 @@ html, body {
     user-select: none;
 
     text-align: center;
-
-    width: 100%;
 
     text-shadow:
         0 0 5px rgba(255,255,255,.4);
@@ -160,9 +161,9 @@ html, body {
     background:
         radial-gradient(
             ellipse at center,
-            transparent 35%,
-            rgba(0,0,0,.35) 70%,
-            rgba(0,0,0,.8) 100%
+            rgba(100,0,0,.08) 20%,
+            rgba(100,0,0,.25) 55%,
+            rgba(0,0,0,.9) 100%
         );
 }
 
@@ -332,16 +333,15 @@ html, body {
 
     pointer-events: none;
 
+    z-index: 3;
+
     background:
         radial-gradient(
             ellipse at center,
-            rgba(90,0,0,.10) 15%,
-            rgba(120,0,0,.35) 40%,
-            rgba(150,0,0,.55) 65%,
-            rgba(55,0,0,.90) 100%
+            rgba(120,0,0,.08) 20%,
+            rgba(100,0,0,.30) 55%,
+            rgba(35,0,0,.82) 100%
         );
-
-    z-index: 1;
 }
 
 
@@ -715,8 +715,6 @@ html, body {
     flex-direction: column;
 
     z-index: 600;
-
-    overflow: hidden;
 }
 
 
@@ -728,61 +726,23 @@ html, body {
     max-height: 85vh;
 
     object-fit: contain;
-
-    z-index: 1;
 }
 
 
-/* ЭКРАН СТАРОГО ТЕЛЕВИЗОРА */
+/* ВИДЕО ПОДОГНАНО ПОД СТАРЫЙ ТВ */
 
 #tvVideo {
-    position: absolute;
+    position: relative;
 
-    width: 55%;
+    width: min(560px,62vw);
 
-    height: 45%;
+    height: min(315px,45vh);
 
-    object-fit: cover;
+    object-fit: contain;
 
     background: black;
 
     z-index: 2;
-
-    top: 50%;
-
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 8%;
-
-    box-shadow:
-        inset 0 0 25px rgba(0,0,0,.8),
-        0 0 15px rgba(0,0,0,.7);
-}
-
-
-/* ЭФФЕКТ CRT */
-
-#tvPage::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 3;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            rgba(0,0,0,.12) 0px,
-            rgba(0,0,0,.12) 2px,
-            transparent 2px,
-            transparent 5px
-        );
 }
 
 
@@ -819,17 +779,21 @@ html, body {
 
     .doorWrapper {
         width: 150px;
+
         height: 330px;
     }
 
     .whiteDoor {
         width: 150px;
+
         height: 330px;
     }
 
     .doorPanel {
         left: 18px;
+
         width: 106px;
+
         height: 95px;
     }
 
@@ -846,12 +810,11 @@ html, body {
     }
 
     #tvVideo {
-        width: 58%;
-        height: 40%;
-    }
+        width: 62vw;
 
-    #sweetDead {
-        font-size: 36px;
+        height: auto;
+
+        max-height: 40vh;
     }
 
 }
@@ -871,7 +834,7 @@ html, body {
     <div class="mainContent">
 
         <div id="sweetDead">
-            viscous madness
+            Viscous Madness
         </div>
 
         <button
@@ -898,11 +861,13 @@ html, body {
 
     </div>
 
+
     <button
         class="answerButton"
         onclick="openPassword(1)">
         Nemka
     </button>
+
 
     <button
         class="answerButton"
@@ -910,11 +875,13 @@ html, body {
         Delta
     </button>
 
+
     <button
         class="answerButton"
         onclick="openPassword(4)">
         Kashtan
     </button>
+
 
     <button
         class="answerButton"
@@ -922,11 +889,13 @@ html, body {
         Lizka
     </button>
 
+
     <button
         class="answerButton"
         onclick="openPassword(6)">
         Lychee
     </button>
+
 
     <button
         class="answerButton"
@@ -934,11 +903,13 @@ html, body {
         Charlotte
     </button>
 
+
     <button
         class="answerButton"
         onclick="openPassword(8)">
         Pancake
     </button>
+
 
     <button
         class="answerButton"
@@ -973,7 +944,9 @@ html, body {
     <button
         id="cancelPassword"
         onclick="closePassword()">
+
         Отмена
+
     </button>
 
     <div id="message"></div>
@@ -1312,6 +1285,7 @@ html, body {
         src="./123.png"
         alt="Телевизор">
 
+
     <video
         id="tvVideo"
         controls
@@ -1325,6 +1299,7 @@ html, body {
 
     </video>
 
+
     <button
         class="tvBack"
         onclick="backToRoom()">
@@ -1337,7 +1312,6 @@ html, body {
 
 
 <script>
-
 
 /* =========================
    ФОН ГЛАВНОЙ
@@ -1360,23 +1334,30 @@ function changePhoto() {
     const page =
         document.getElementById("page1");
 
+
     const button =
         document.getElementById("emptyButton");
+
 
     page.style.backgroundImage =
         'url("' +
         photos[currentPhoto] +
         '")';
 
+
     button.style.backgroundImage =
         'url("' +
         photos[currentPhoto] +
         '")';
 
+
     currentPhoto++;
 
+
     if (currentPhoto >= photos.length) {
+
         currentPhoto = 0;
+
     }
 
 }
@@ -1403,8 +1384,11 @@ let windSource = null;
 function startWind() {
 
     if (windSource) {
+
         return;
+
     }
+
 
     try {
 
@@ -1413,6 +1397,7 @@ function startWind() {
             window.webkitAudioContext
         )();
 
+
         const buffer =
             audioContext.createBuffer(
                 1,
@@ -1420,10 +1405,13 @@ function startWind() {
                 audioContext.sampleRate
             );
 
+
         const data =
             buffer.getChannelData(0);
 
+
         let last = 0;
+
 
         for (
             let i = 0;
@@ -1434,9 +1422,11 @@ function startWind() {
             const random =
                 Math.random() * 2 - 1;
 
+
             last =
                 last * 0.985 +
                 random * 0.015;
+
 
             data[i] =
                 last * 6 +
@@ -1444,29 +1434,38 @@ function startWind() {
 
         }
 
+
         windSource =
             audioContext.createBufferSource();
+
 
         windSource.buffer =
             buffer;
 
+
         windSource.loop =
             true;
+
 
         const filter =
             audioContext.createBiquadFilter();
 
+
         filter.type =
             "lowpass";
+
 
         filter.frequency.value =
             750;
 
+
         const gain =
             audioContext.createGain();
 
+
         gain.gain.value =
             0.18;
+
 
         windSource
             .connect(filter)
@@ -1474,6 +1473,7 @@ function startWind() {
             .connect(
                 audioContext.destination
             );
+
 
         windSource.start(0);
 
@@ -1500,24 +1500,32 @@ function stopWind() {
     if (windSource) {
 
         try {
+
             windSource.stop();
+
         }
 
         catch (e) {}
 
+
         windSource.disconnect();
+
 
         windSource = null;
 
     }
 
+
     if (audioContext) {
 
         try {
+
             audioContext.close();
+
         }
 
         catch (e) {}
+
 
         audioContext = null;
 
@@ -1535,6 +1543,7 @@ const scareSound =
         "https://zvukitop.com/wp-content/uploads/2020/11/strashnyezvuki-45.mp3"
     );
 
+
 scareSound.preload =
     "auto";
 
@@ -1545,8 +1554,7 @@ function stopScareSound() {
 
         scareSound.pause();
 
-        scareSound.currentTime =
-            0;
+        scareSound.currentTime = 0;
 
     }
 
@@ -1574,10 +1582,12 @@ document
 
             startWind();
 
+
             document.getElementById(
                 "page1"
             ).style.display =
                 "none";
+
 
             document.getElementById(
                 "page2"
@@ -1627,20 +1637,24 @@ function openPassword(number) {
     selectedAnswer =
         number;
 
+
     document.getElementById(
         "passwordBox"
     ).style.display =
         "block";
+
 
     document.getElementById(
         "passwordInput"
     ).value =
         "";
 
+
     document.getElementById(
         "message"
     ).innerText =
         "";
+
 
     document.getElementById(
         "passwordInput"
@@ -1678,6 +1692,7 @@ document
                     "passwordInput"
                 ).value;
 
+
             if (
                 enteredPassword ===
                 passwords[selectedAnswer]
@@ -1687,6 +1702,7 @@ document
                     "passwordBox"
                 ).style.display =
                     "none";
+
 
                 if (
                     selectedAnswer === 10
@@ -1727,35 +1743,42 @@ function openDossier(number) {
 
     stopScareSound();
 
+
     document.getElementById(
         "page2"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "emptyPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "roomPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "eyesPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "tvPage"
     ).style.display =
         "none";
 
+
     const dossiers =
         document.querySelectorAll(
             ".dossier"
         );
+
 
     dossiers.forEach(
         function(dossier) {
@@ -1766,10 +1789,12 @@ function openDossier(number) {
         }
     );
 
+
     const selectedDossier =
         document.getElementById(
             "dossier" + number
         );
+
 
     if (selectedDossier) {
 
@@ -1791,30 +1816,36 @@ function openEmptyPage() {
 
     stopScareSound();
 
+
     document.getElementById(
         "page1"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "page2"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "roomPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "eyesPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "tvPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "emptyPage"
@@ -1834,35 +1865,42 @@ function openRoomPage() {
 
     stopScareSound();
 
+
     document.getElementById(
         "page1"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "page2"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "emptyPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "eyesPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "tvPage"
     ).style.display =
         "none";
 
+
     const dossiers =
         document.querySelectorAll(
             ".dossier"
         );
+
 
     dossiers.forEach(
         function(dossier) {
@@ -1872,6 +1910,7 @@ function openRoomPage() {
 
         }
     );
+
 
     document.getElementById(
         "roomPage"
@@ -1894,6 +1933,7 @@ function openEyesPage() {
 
     stopScareSound();
 
+
     if (scareTimer) {
 
         clearTimeout(
@@ -1904,31 +1944,39 @@ function openEyesPage() {
 
     }
 
+
     document.getElementById(
         "roomPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "eyesPage"
     ).style.display =
         "flex";
 
+
     const eyes =
         document.getElementById(
             "eyesImage"
         );
 
+
     eyes.style.animation =
         "none";
 
+
     void eyes.offsetWidth;
+
 
     eyes.style.animation =
         "eyesAppear 1.5s ease forwards";
 
+
     scareSound.currentTime =
         0;
+
 
     scareSound.play().catch(
         function(error) {
@@ -1941,21 +1989,25 @@ function openEyesPage() {
         }
     );
 
+
     scareTimer =
         setTimeout(
             function() {
 
                 stopScareSound();
 
+
                 document.getElementById(
                     "eyesPage"
                 ).style.display =
                     "none";
 
+
                 document.getElementById(
                     "page1"
                 ).style.display =
                     "flex";
+
 
                 scareTimer = null;
 
@@ -1976,28 +2028,34 @@ function openTvPage() {
 
     stopScareSound();
 
+
     document.getElementById(
         "roomPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "eyesPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "tvPage"
     ).style.display =
         "flex";
+
 
     const video =
         document.getElementById(
             "tvVideo"
         );
 
+
     video.currentTime =
         0;
+
 
     video.play().catch(
         function(error) {
@@ -2024,15 +2082,18 @@ function backToRoom() {
             "tvVideo"
         );
 
+
     video.pause();
 
     video.currentTime =
         0;
 
+
     document.getElementById(
         "tvPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "roomPage"
@@ -2052,6 +2113,7 @@ function backToHome() {
 
     stopScareSound();
 
+
     if (scareTimer) {
 
         clearTimeout(
@@ -2062,45 +2124,54 @@ function backToHome() {
 
     }
 
+
     const video =
         document.getElementById(
             "tvVideo"
         );
+
 
     video.pause();
 
     video.currentTime =
         0;
 
+
     document.getElementById(
         "roomPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "emptyPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "eyesPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "tvPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "page2"
     ).style.display =
         "none";
 
+
     const dossiers =
         document.querySelectorAll(
             ".dossier"
         );
+
 
     dossiers.forEach(
         function(dossier) {
@@ -2110,6 +2181,7 @@ function backToHome() {
 
         }
     );
+
 
     document.getElementById(
         "page1"
@@ -2127,10 +2199,12 @@ function backToAnswers() {
 
     stopScareSound();
 
+
     const dossiers =
         document.querySelectorAll(
             ".dossier"
         );
+
 
     dossiers.forEach(
         function(dossier) {
@@ -2141,25 +2215,30 @@ function backToAnswers() {
         }
     );
 
+
     document.getElementById(
         "emptyPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "roomPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "eyesPage"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "tvPage"
     ).style.display =
         "none";
+
 
     document.getElementById(
         "page2"
